@@ -171,7 +171,7 @@ with st.form("intake_form", clear_on_submit=True):
     if submit_button:
         if name and email: # Basic validation
             # The FormSubmit endpoint
-            url = f"https://formsubmit.co/ajax/yourname@email.com" # <--- REPLACE WITH YOUR EMAIL
+            url = f"https://formsubmit.co/ajax/jmnosh@gmail.com" # <--- REPLACE WITH YOUR EMAIL
             
             # Prepare the data payload
             payload = {
