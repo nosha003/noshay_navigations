@@ -4,121 +4,127 @@ import requests
 # --- PAGE CONFIG ---
 st.set_page_config(page_title="Noshay Navigations", page_icon="🧭", layout="wide")
 
-# --- REFINED CSS FOR EXACT LAYOUT & NAVIGATION ---
+# --- ADAPTIVE CSS FOR LIGHT & DARK MODE ---
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-    /* Background Hue */
-    .stApp {
-        background-color: #f1f4ef; /* Subtle Green Hue */
+    /* 1. LIGHT MODE (DEFAULT) */
+    :root {
+        --bg-color: #f1f4ef;
+        --text-main: #2e4a3d;
+        --text-sub: #3e5c46;
+        --card-bg: #ffffff;
+        --border-color: #d1d8d1;
+        --accent-hue: rgba(46, 74, 61, 0.1);
     }
 
-    /* Top Nav Bar - Dropdown Style */
+    /* 2. DARK MODE OVERRIDES */
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --bg-color: #1a1c19; /* Deep Charcoal Green */
+            --text-main: #e2e3de; /* Off-white */
+            --text-sub: #a3ad9f; /* Muted Sage */
+            --card-bg: #242622; /* Slightly lighter charcoal */
+            --border-color: #3e423d;
+            --accent-hue: rgba(163, 173, 159, 0.1);
+        }
+    }
+
+    /* Apply variables to the App */
+    .stApp {
+        background-color: var(--bg-color);
+        font-family: 'Inter', sans-serif;
+    }
+
     .nav-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 5px 0;
-        border-bottom: 1px solid #d1d8d1;
+        border-bottom: 1px solid var(--border-color);
         margin-bottom: 20px;
     }
 
-    /* Hero Proportions */
     .main-title {
-        color: #2e4a3d;
-        font-size: 52px; /* Slightly larger */
+        color: var(--text-main);
+        font-size: 52px;
         font-weight: 700;
         margin-bottom: 0px;
         letter-spacing: -1px;
     }
+
     .tagline {
-        color: #3e5c46;
-        font-size: 28px; /* Larger Slogan to fill space */
+        color: var(--text-sub);
+        font-size: 28px;
         font-weight: 500;
         margin-top: -5px;
         margin-bottom: 15px;
         line-height: 1.2;
     }
+
     .sub-labels {
-        color: #2e4a3d;
+        color: var(--text-main);
         font-size: 15px;
         font-weight: 500;
-        background: rgba(46, 74, 61, 0.1);
+        background: var(--accent-hue);
         padding: 5px 12px;
         border-radius: 5px;
         display: inline-block;
     }
 
-    /* Pillar Styling */
-    .pillar-title {
-        color: #2e4a3d;
-        font-size: 20px;
-        font-weight: 700;
-        margin-bottom: 10px;
-    }
-    .pillar-text {
-        font-size: 14px;
-        color: #4a4a4a;
-        line-height: 1.6;
-    }
-
-    /* Price Card (Dashed) */
-    .price-card-container {
-        background-color: white;
-        border: 2px dashed #9fbcac;
+    .stat-card, .price-card-container {
+        background-color: var(--card-bg);
+        padding: 25px;
         border-radius: 12px;
-        padding: 40px 20px;
-        text-align: center;
+        border: 1px solid var(--border-color);
+        color: var(--text-main);
     }
 
-    /* Button Styling */
-    .stButton > button {
-        background-color: #2e4a3d !important;
-        color: white !important;
-        border-radius: 6px !important;
-        padding: 10px 30px !important;
-        font-weight: 600 !important;
+    .price-card-container {
+        border: 2px dashed #9fbcac; /* Keep the sage dash as a brand element */
     }
 
-    /* Custom Dropdown placement */
-    .stSelectbox {
-        margin-top: -15px;
+    /* Ensure standard text follows the theme */
+    p, span, div, label {
+        color: var(--text-main);
     }
 
+    /* Hamburger Dropdown adjustment */
+    div[data-baseweb="select"] {
+        width: 70px !important;
+        float: right;
+    }
+    
     hr {
         border: 0;
-        border-top: 1px solid #d1d8d1;
+        border-top: 1px solid var(--border-color);
         margin: 30px 0;
     }
     </style>
     """, unsafe_allow_html=True)
 
-# --- TOP NAVIGATION & DROPDOWN ---
-# This creates the header bar with the logo on left and dropdown on right
-col_logo, col_nav = st.columns([2, 1])
 
-with col_logo:
+# --- TOP NAVIGATION (HAMBURGER STYLE) ---
+col_left, col_right = st.columns([5, 1])
+
+with col_left:
     st.markdown("""
-        <div style="display:flex; align-items:center; gap:12px; padding-top:10px;">
+        <div style="display:flex; align-items:center; gap:12px;">
             <span style="font-size:24px;">🧭</span>
-            <span style="font-weight:700; font-size:20px; color:#2e4a3d; letter-spacing: -0.5px;">Noshay Navigations</span>
+            <span style="font-weight:700; font-size:20px; color:#2e4a3d;">Noshay Navigations</span>
         </div>
     """, unsafe_allow_html=True)
 
-with col_nav:
-    # Dropdown menu for navigation
-    page = st.selectbox(
-        "Navigation",
-        ["🗺️ Coaching", "📚 Research & Resources", "🏆 Accomplishments"],
-        label_visibility="collapsed"
-    )
+with col_right:
+    # The '☰' serves as the label for the dropdown
+    page = st.selectbox("☰", ["Coaching", "Research & Resources", "My Story & Accomplishments"], label_visibility="visible")
 
 st.markdown("<hr style='margin-top:0;'>", unsafe_allow_html=True)
 
 # --- PAGE LOGIC ---
 
-if page == "🗺️ Coaching":
+if page == "Coaching":
     # --- HERO SECTION ---
     col_text, col_img = st.columns([2.5, 1]) # Tightened ratio for larger slogan
 
@@ -155,20 +161,29 @@ if page == "🗺️ Coaching":
 
     pkg_col1, pkg_col2 = st.columns([1, 1.2])
 
+    # --- COACHING PACKAGE SECTION ---
+    st.markdown('<div style="color: #1a1a1a; font-size: 26px; font-weight: 700; margin-bottom: 25px;">Coaching Navigation Package</div>', unsafe_allow_html=True)
+
+    pkg_col1, pkg_col2 = st.columns([1, 1.2])
+
     with pkg_col1:
-        st.markdown("""
+        st.markdown("### What's Included:")
+        st.write("✅ **Personalized Look-Ahead:** A long-term vision of your season goals.")
+        st.write("✅ **Week-to-Week Planning:** Dynamic schedules that adapt to your real life.")
+        st.write("✅ **COROS Training Hub:** Full utilization of technical metrics.")
+
+    with pkg_col2:
+        st.markdown("#### **Communication:**")
+        st.write("📞 **Monthly Phone Call:** Deep dive into strategy and progress.")
+        st.write("💬 **Ad Hoc Text Support:** Quick questions? On-the-fly adjustments? I'm a text away.")
+        st.write("🏃 **Expert Guidance:** Specialized trail, ultra, and exploration advice.")
+        
+    st.markdown("""
             <div class="price-card-container">
                 <div style="color: #2e4a3d; font-size: 36px; font-weight: 700;">$100 <span style="font-size:18px; font-weight:400; color:#666;">/ month</span></div>
                 <div style="color:#666; font-size:14px; margin-top:8px;">Comprehensive Coaching for Every Distance</div>
             </div>
         """, unsafe_allow_html=True)
-
-    with pkg_col2:
-        st.markdown("### What's Included:")
-        st.write("✅ **Personalized Look-Ahead:** Season-long vision and goal alignment.")
-        st.write("✅ **Week-to-Week Planning:** Dynamic schedules built for real life.")
-        st.write("✅ **COROS Training Hub:** Data-driven technical metrics.")
-        st.write("📞 **Monthly Deep Dive:** Phone strategy calls + Ad Hoc text support.")
 
     st.markdown("<hr>", unsafe_allow_html=True)
 
@@ -204,7 +219,7 @@ if page == "🗺️ Coaching":
             else:
                 st.warning("Please provide both your name and email address.")
 
-elif page == "📚 Research & Resources":
+elif page == "Research & Resources":
     st.markdown('<div class="main-title">Resource Library</div>', unsafe_allow_html=True)
     st.markdown('<div class="tagline">Science-backed navigation for the long haul.</div>', unsafe_allow_html=True)
     
@@ -226,40 +241,46 @@ elif page == "📚 Research & Resources":
         * **[Forest Park Conservancy](https://forestparkconservancy.org/):** Local Portland trail maps and updates.
         """)
 
-elif page == "🏆 Accomplishments":
-    st.markdown('<div class="main-title">The Field Log</div>', unsafe_allow_html=True)
-    st.markdown('<div class="tagline">Jaclyn Noshay: Experience on the Dirt.</div>', unsafe_allow_html=True)
+elif page == "About & Accomplishments":
+    st.markdown('<div class="main-title">About Jaclyn Noshay</div>', unsafe_allow_html=True)
     
-    # ADDED: Professional link button to your results
-    st.link_button("View Full Results on UltraSignup", 
-                   "https://ultrasignup.com/results_participant.aspx?fname=Jaclyn&lname=Noshay",
-                   type="primary")
+    col_bio, col_stats = st.columns([1.5, 1])
     
-    st.divider()
+    with col_bio:
+        st.write("""
+        I am a Portland-based ultra-endurance athlete and coach who believes that performance is a logistical puzzle. 
+        With over a decade of experience on the dirt—ranging from the technical alpine trails of the PNW to the 
+        humid, rugged forests of the East Coast—I have learned that training for a 100-miler shouldn't 
+        require sacrificing your career or family life.
+        
+        My coaching philosophy is simple: **I provide the map, you provide the engine.**
+        """)
+        st.link_button("View Full UltraSignup Profile", "https://ultrasignup.com/results_participant.aspx?fname=Jaclyn&lname=Noshay")
 
-    col_stats1, col_stats2 = st.columns(2)
-    with col_stats1:
-        st.info("🏔️ **Ultra Distance Specialist**")
-        st.write("Consistent finisher of challenging West Coast trail events, with multiple top-tier finishes in the 100M and 100K distances.")
-    with col_stats2:
-        st.success("🌲 **PNW Expert**")
-        st.write("Deep familiarity with the steep grades and technical terrain of Oregon and Washington trail systems.")
+    with col_stats:
+        # Displaying DP and Rankings from UltraSignup
+        st.markdown(f"""
+            <div class="stat-card">
+                <div style="font-size:14px; color:gray;">UltraSignup Rank</div>
+                <div class="stat-val">91.85%</div>
+                <div style="font-size:12px; margin-top:10px;">Consistently ranked in the top tier of female ultra-athletes.</div>
+            </div>
+            <br>
+            <div class="stat-card">
+                <div style="font-size:14px; color:gray;">Overall Finish Rate</div>
+                <div class="stat-val">100%</div>
+                <div style="font-size:12px; margin-top:10px;">Technical efficiency across 100M, 100K, and 50K distances.</div>
+            </div>
+        """, unsafe_allow_html=True)
 
-    st.markdown('<div class="section-header">Recent Race Results</div>', unsafe_allow_html=True)
-    
-    # Refined based on updated UltraSignup Participant Data
+    st.markdown("### 🏆 The Field Log")
     st.table([
-        {"Year": "2024", "Event": "Oregon Cascades 100", "Dist": "100 Miler", "Result": "5th Overall"},
-        {"Year": "2024", "Event": "Siskiyou Out Back (SOB)", "Dist": "100K", "Result": "13th Overall"},
-        {"Year": "2024", "Event": "Smith Rock Classic", "Dist": "50K", "Result": "8th Overall"},
-        {"Year": "2023", "Event": "Superior Fall Trail Race", "Dist": "100 Miler", "Result": "8th Overall"},
-        {"Year": "2022", "Event": "No Business 100", "Dist": "100 Miler", "Result": "6th Overall"}
+        {"Year": "2024", "Event": "Oregon Cascades 100M", "Rank": "5th Female", "Category": "100 Miler"},
+        {"Year": "2024", "Event": "Siskiyou Out Back 100K", "Rank": "13th Overall", "Category": "100K"},
+        {"Year": "2024", "Event": "Smith Rock Classic 50K", "Rank": "8th Female", "Category": "50K"},
+        {"Year": "2023", "Event": "Superior Fall Trail Race 100M", "Rank": "8th Female", "Category": "100 Miler"},
+        {"Year": "2022", "Event": "No Business 100M", "Rank": "6th Female", "Category": "100 Miler"}
     ])
-    
-    st.markdown("""
-    > **Coach's Perspective:** My race history is a map of lessons learned. From the high desert heat of Smith Rock to the rugged technicality of the Superior 100, 
-    > I leverage my personal experience to help you navigate the logistics of your own specific race day.
-    """)
 
 # --- FOOTER ---
 st.markdown(f"""
