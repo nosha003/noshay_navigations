@@ -52,9 +52,26 @@ class CoachingCLI:
         print("\n--- Add New Runner ---")
         name = input("Name: ").strip()
         email = input("Email: ").strip()
-        age = int(input("Age: ").strip())
-        print("Experience Level: beginner, intermediate, advanced")
-        experience_level = input("Experience Level: ").strip().lower()
+        
+        # Validate age input
+        while True:
+            try:
+                age = int(input("Age: ").strip())
+                if age <= 0 or age > 120:
+                    print("Please enter a valid age between 1 and 120.")
+                    continue
+                break
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+        
+        # Validate experience level
+        valid_levels = ["beginner", "intermediate", "advanced"]
+        print(f"Experience Level: {', '.join(valid_levels)}")
+        while True:
+            experience_level = input("Experience Level: ").strip().lower()
+            if experience_level in valid_levels:
+                break
+            print(f"Invalid level. Please choose from: {', '.join(valid_levels)}")
         
         runner_id = f"runner_{len(self.storage.get_all_runners()) + 1}"
         runner = Runner(
@@ -106,16 +123,49 @@ class CoachingCLI:
             print("Runner not found.")
             return
         
-        date_str = input("Date (YYYY-MM-DD) or press Enter for today: ").strip()
-        if date_str:
-            session_date = date.fromisoformat(date_str)
-        else:
-            session_date = date.today()
+        # Validate date input
+        while True:
+            date_str = input("Date (YYYY-MM-DD) or press Enter for today: ").strip()
+            if not date_str:
+                session_date = date.today()
+                break
+            try:
+                session_date = date.fromisoformat(date_str)
+                break
+            except ValueError:
+                print("Invalid date format. Please use YYYY-MM-DD format.")
         
-        distance_km = float(input("Distance (km): ").strip())
-        duration_minutes = int(input("Duration (minutes): ").strip())
-        print("Session Type: easy, tempo, interval, long, recovery")
-        session_type = input("Session Type: ").strip().lower()
+        # Validate distance input
+        while True:
+            try:
+                distance_km = float(input("Distance (km): ").strip())
+                if distance_km <= 0:
+                    print("Distance must be greater than 0.")
+                    continue
+                break
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+        
+        # Validate duration input
+        while True:
+            try:
+                duration_minutes = int(input("Duration (minutes): ").strip())
+                if duration_minutes <= 0:
+                    print("Duration must be greater than 0.")
+                    continue
+                break
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+        
+        # Validate session type
+        valid_types = ["easy", "tempo", "interval", "long", "recovery"]
+        print(f"Session Type: {', '.join(valid_types)}")
+        while True:
+            session_type = input("Session Type: ").strip().lower()
+            if session_type in valid_types:
+                break
+            print(f"Invalid type. Please choose from: {', '.join(valid_types)}")
+        
         notes = input("Notes (optional): ").strip()
         
         sessions = self.storage.get_sessions_for_runner(runner_id)
@@ -209,10 +259,41 @@ class CoachingCLI:
             return
         
         name = input("Plan Name: ").strip()
-        start_date_str = input("Start Date (YYYY-MM-DD): ").strip()
-        end_date_str = input("End Date (YYYY-MM-DD): ").strip()
+        
+        # Validate start date
+        while True:
+            start_date_str = input("Start Date (YYYY-MM-DD): ").strip()
+            try:
+                start_date = date.fromisoformat(start_date_str)
+                break
+            except ValueError:
+                print("Invalid date format. Please use YYYY-MM-DD format.")
+        
+        # Validate end date
+        while True:
+            end_date_str = input("End Date (YYYY-MM-DD): ").strip()
+            try:
+                end_date = date.fromisoformat(end_date_str)
+                if end_date <= start_date:
+                    print("End date must be after start date.")
+                    continue
+                break
+            except ValueError:
+                print("Invalid date format. Please use YYYY-MM-DD format.")
+        
         goal = input("Goal: ").strip()
-        weekly_mileage = float(input("Weekly Mileage Target (km): ").strip())
+        
+        # Validate weekly mileage
+        while True:
+            try:
+                weekly_mileage = float(input("Weekly Mileage Target (km): ").strip())
+                if weekly_mileage <= 0:
+                    print("Weekly mileage must be greater than 0.")
+                    continue
+                break
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+        
         description = input("Description (optional): ").strip()
         
         plans = self.storage.get_plans_for_runner(runner_id)
@@ -222,8 +303,8 @@ class CoachingCLI:
             id=plan_id,
             runner_id=runner_id,
             name=name,
-            start_date=date.fromisoformat(start_date_str),
-            end_date=date.fromisoformat(end_date_str),
+            start_date=start_date,
+            end_date=end_date,
             goal=goal,
             weekly_mileage_target=weekly_mileage,
             description=description
