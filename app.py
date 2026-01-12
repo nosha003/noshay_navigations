@@ -4,33 +4,34 @@ import requests
 # --- PAGE CONFIG ---
 st.set_page_config(page_title="Noshay Navigations", page_icon="🧭", layout="wide")
 
-# --- REFINED DUAL-MODE CSS (ADJUSTED PALETTE) ---
+# --- ADAPTIVE CSS FOR LIGHT & DARK MODE ---
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-    /* 1. DEFINE COLOR VARIABLES FOR BOTH MODES */
+    /* 1. LIGHT MODE (DEFAULT) */
     :root {
-        --bg-color: #f1f4ef;        /* Original Light Sage */
-        --text-header: #2e4a3d;     /* Deep Green */
-        --text-body: #333333;       /* High contrast dark gray */
-        --card-bg: #ffffff;         /* Pure white cards */
+        --bg-color: #f1f4ef;
+        --text-main: #2e4a3d;
+        --text-sub: #3e5c46;
+        --card-bg: #ffffff;
         --border-color: #d1d8d1;
-        --accent-green: #3e5c46;
+        --accent-hue: rgba(46, 74, 61, 0.1);
     }
 
+    /* 2. DARK MODE OVERRIDES */
     @media (prefers-color-scheme: dark) {
         :root {
-            --bg-color: #0f1410;    /* Very dark "Obsidian Green" */
-            --text-header: #c5d1c9; /* Soft silver-green */
-            --text-body: #e0e0e0;   /* Light gray body text */
-            --card-bg: #1a211b;     /* Dark forest card background */
-            --border-color: #2d382f;
-            --accent-green: #89a391; /* Lighter sage for dark mode visibility */
+            --bg-color: #1a1c19; /* Deep Charcoal Green */
+            --text-main: #e2e3de; /* Off-white */
+            --text-sub: #a3ad9f; /* Muted Sage */
+            --card-bg: #242622; /* Slightly lighter charcoal */
+            --border-color: #3e423d;
+            --accent-hue: rgba(163, 173, 159, 0.1);
         }
     }
 
-    /* 2. APPLY VARIABLES TO YOUR ORIGINAL CSS STRUCTURE */
+    /* Apply variables to the App */
     .stApp {
         background-color: var(--bg-color);
         font-family: 'Inter', sans-serif;
@@ -45,14 +46,8 @@ st.markdown("""
         margin-bottom: 20px;
     }
 
-    /* Hamburger Dropdown alignment */
-    div[data-baseweb="select"] {
-        width: 75px !important;
-        float: right;
-    }
-
     .main-title {
-        color: var(--text-header);
+        color: var(--text-main);
         font-size: 52px;
         font-weight: 700;
         margin-bottom: 0px;
@@ -60,7 +55,7 @@ st.markdown("""
     }
 
     .tagline {
-        color: var(--accent-green);
+        color: var(--text-sub);
         font-size: 28px;
         font-weight: 500;
         margin-top: -5px;
@@ -69,59 +64,38 @@ st.markdown("""
     }
 
     .sub-labels {
-        color: var(--text-header);
+        color: var(--text-main);
         font-size: 15px;
         font-weight: 500;
-        background: rgba(137, 163, 145, 0.2); /* Transparent accent */
+        background: var(--accent-hue);
         padding: 5px 12px;
         border-radius: 5px;
         display: inline-block;
     }
 
-    /* Pillar & Content Text */
-    .pillar-title {
-        color: var(--text-header);
-        font-size: 20px;
-        font-weight: 700;
-        margin-bottom: 10px;
-    }
-
-    .pillar-text, .stMarkdown, p, li {
-        color: var(--text-body) !important;
-        font-size: 14px;
-        line-height: 1.6;
-    }
-
-    /* Cards */
     .stat-card, .price-card-container {
         background-color: var(--card-bg);
         padding: 25px;
         border-radius: 12px;
         border: 1px solid var(--border-color);
-        text-align: center;
-        color: var(--text-body);
+        color: var(--text-main);
     }
 
     .price-card-container {
-        border: 2px dashed var(--accent-green);
+        border: 2px dashed #9fbcac; /* Keep the sage dash as a brand element */
     }
 
-    .stat-val {
-        color: var(--accent-green);
-        font-size: 28px;
-        font-weight: 700;
+    /* Ensure standard text follows the theme */
+    p, span, div, label {
+        color: var(--text-main);
     }
 
-    /* Button - Branding remains static */
-    .stButton > button {
-        background-color: #2e4a3d !important;
-        color: white !important;
-        border-radius: 6px !important;
-        padding: 10px 30px !important;
-        font-weight: 600 !important;
-        border: none !important;
+    /* Hamburger Dropdown adjustment */
+    div[data-baseweb="select"] {
+        width: 70px !important;
+        float: right;
     }
-
+    
     hr {
         border: 0;
         border-top: 1px solid var(--border-color);
