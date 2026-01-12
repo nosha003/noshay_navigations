@@ -143,8 +143,8 @@ pkg_col1, pkg_col2 = st.columns([1, 1.2])
 with pkg_col1:
     st.markdown("""
         <div class="price-card-container">
-            <div style="color: #2e4a3d; font-size: 36px; font-weight: 700;">$100 <span style="font-size:18px; font-weight:400; color:#666;">/ month</span></div>
-            <div style="color:#666; font-size:14px; margin-top:8px;">Comprehensive Coaching for Every Distance</div>
+            <div style="color: #1a1a1a; font-size: 36px; font-weight: 700;">$100 <span style="font-size:18px; font-weight:400; color:#666;">/ month</span></div>
+            <div style="color:#333; font-size:14px; margin-top:8px;">Comprehensive Coaching for Every Distance</div>
         </div>
     """, unsafe_allow_html=True)
 
