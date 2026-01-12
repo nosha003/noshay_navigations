@@ -142,14 +142,6 @@ st.markdown('<div style="color: #1a1a1a; font-size: 26px; font-weight: 700; marg
 pkg_col1, pkg_col2 = st.columns([1, 1.2])
 
 with pkg_col1:
-    st.markdown("""
-        <div class="price-card-container">
-            <div style="color: #1a1a1a; font-size: 36px; font-weight: 700;">$100 <span style="font-size:18px; font-weight:400; color:#666;">/ month</span></div>
-            <div style="color:#333; font-size:14px; margin-top:8px;">Comprehensive Coaching for Every Distance</div>
-        </div>
-    """, unsafe_allow_html=True)
-
-with pkg_col2:
     st.markdown("### What's Included:")
     st.write("✅ **Personalized Look-Ahead:** A long-term vision of your season goals.")
     st.write("✅ **Week-to-Week Planning:** Dynamic schedules that adapt to your real life.")
@@ -159,6 +151,14 @@ with pkg_col2:
     st.write("📞 **Monthly Phone Call:** Deep dive into strategy and progress.")
     st.write("💬 **Ad Hoc Text Support:** Quick questions? On-the-fly adjustments? I'm a text away.")
     st.write("🏃 **Expert Guidance:** Specialized trail, ultra, and exploration advice.")
+
+with pkg_col2:
+    st.markdown("""
+        <div class="price-card-container">
+            <div style="color: #1a1a1a; font-size: 36px; font-weight: 700;">$100 <span style="font-size:18px; font-weight:400; color:#666;">/ month</span></div>
+            <div style="color:#333; font-size:14px; margin-top:8px;">Comprehensive Coaching for Every Distance</div>
+        </div>
+    """, unsafe_allow_html=True)
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
