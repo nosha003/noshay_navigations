@@ -4,58 +4,38 @@ import requests
 # --- PAGE CONFIG ---
 st.set_page_config(page_title="Noshay Navigations", page_icon="🧭", layout="wide")
 
-# --- ADAPTIVE CSS FOR LIGHT & DARK MODE ---
+# --- ADAPTIVE NATIVE CSS ---
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-    /* 1. LIGHT MODE (DEFAULT) */
-    :root {
-        --bg-color: #f1f4ef;
-        --text-main: #2e4a3d;
-        --text-sub: #3e5c46;
-        --card-bg: #ffffff;
-        --border-color: #d1d8d1;
-        --accent-hue: rgba(46, 74, 61, 0.1);
-    }
-
-    /* 2. DARK MODE OVERRIDES */
-    @media (prefers-color-scheme: dark) {
-        :root {
-            --bg-color: #1a1c19; /* Deep Charcoal Green */
-            --text-main: #e2e3de; /* Off-white */
-            --text-sub: #a3ad9f; /* Muted Sage */
-            --card-bg: #242622; /* Slightly lighter charcoal */
-            --border-color: #3e423d;
-            --accent-hue: rgba(163, 173, 159, 0.1);
-        }
-    }
-
-    /* Apply variables to the App */
+    /* This targets the main background using Streamlit's internal variable */
     .stApp {
-        background-color: var(--bg-color);
         font-family: 'Inter', sans-serif;
     }
 
+    /* Top Nav Bar - Bottom border adapts to theme */
     .nav-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 5px 0;
-        border-bottom: 1px solid var(--border-color);
+        border-bottom: 1px solid rgba(128, 128, 128, 0.2);
         margin-bottom: 20px;
     }
 
+    /* Titles use the primary 'text' color of the current theme */
     .main-title {
-        color: var(--text-main);
+        color: var(--text-color);
         font-size: 52px;
         font-weight: 700;
         margin-bottom: 0px;
         letter-spacing: -1px;
     }
 
+    /* Use your brand green as a secondary accent color */
     .tagline {
-        color: var(--text-sub);
+        color: #3e5c46; 
         font-size: 28px;
         font-weight: 500;
         margin-top: -5px;
@@ -63,42 +43,48 @@ st.markdown("""
         line-height: 1.2;
     }
 
+    /* Sub-labels with a semi-transparent background that works on light or dark */
     .sub-labels {
-        color: var(--text-main);
         font-size: 15px;
         font-weight: 500;
-        background: var(--accent-hue);
+        background: rgba(62, 92, 70, 0.15);
+        color: #3e5c46;
         padding: 5px 12px;
         border-radius: 5px;
         display: inline-block;
     }
 
+    /* Cards that adapt their background based on the theme */
     .stat-card, .price-card-container {
-        background-color: var(--card-bg);
+        background-color: rgba(128, 128, 128, 0.05);
         padding: 25px;
         border-radius: 12px;
-        border: 1px solid var(--border-color);
-        color: var(--text-main);
+        border: 1px solid rgba(128, 128, 128, 0.1);
+        text-align: center;
     }
 
-    .price-card-container {
-        border: 2px dashed #9fbcac; /* Keep the sage dash as a brand element */
+    .stat-val {
+        color: #3e5c46;
+        font-size: 28px;
+        font-weight: 700;
     }
 
-    /* Ensure standard text follows the theme */
-    p, span, div, label {
-        color: var(--text-main);
-    }
-
-    /* Hamburger Dropdown adjustment */
+    /* Hamburger Dropdown fix */
     div[data-baseweb="select"] {
-        width: 70px !important;
+        width: 75px !important;
         float: right;
     }
-    
+
+    /* Button stays brand-consistent */
+    .stButton > button {
+        background-color: #2e4a3d !important;
+        color: white !important;
+        border: none !important;
+    }
+
     hr {
         border: 0;
-        border-top: 1px solid var(--border-color);
+        border-top: 1px solid rgba(128, 128, 128, 0.2);
         margin: 30px 0;
     }
     </style>
