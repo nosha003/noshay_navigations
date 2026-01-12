@@ -110,7 +110,7 @@ col_text, col_img = st.columns([2.2, 1])
 
 with col_text:
     st.markdown('<div class="main-title">Noshay Navigations</div>', unsafe_allow_html=True)
-    st.markdown('<div class="tagline">Mapped for Adventure. Built for Life.</div>', unsafe_allow_html=True)
+    st.markdown('<div class="tagline">🌲 Mapped for Adventure. Built for Life.</div>', unsafe_allow_html=True)
     st.markdown('<div class="sub-labels">🏁 Trail & Ultra Specialist | Performance | Exploration for All Levels</div>', unsafe_allow_html=True)
 
 with col_img:
@@ -151,9 +151,14 @@ with pkg_col1:
 
 with pkg_col2:
     st.markdown("### What's Included:")
-    st.markdown("✅ **Personalized Look-Ahead:** A long term vision that aligns progress.")
-    st.markdown("📞 **COROS Training Hub:** Full utilization of technical metrics.")
-    st.markdown("🌲 **Expert Trail & Distance advice.**")
+    st.write("✅ **Personalized Look-Ahead:** A long-term vision of your season goals.")
+    st.write("✅ **Week-to-Week Planning:** Dynamic schedules that adapt to your real life.")
+    st.write("✅ **COROS Training Hub:** Full utilization of technical metrics.")
+
+    st.markdown("#### **Communication:**")
+    st.write("📞 **Monthly Phone Call:** Deep dive into strategy and progress.")
+    st.write("💬 **Ad Hoc Text Support:** Quick questions? On-the-fly adjustments? I'm a text away.")
+    st.write("🏃 **Expert Guidance:** Specialized trail, ultra, and exploration advice.")
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
