@@ -1,4 +1,5 @@
 import streamlit as st
+import requests
 
 # --- PAGE CONFIG ---
 st.set_page_config(page_title="Noshay Navigations", page_icon="🧭", layout="wide")
