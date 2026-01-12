@@ -4,50 +4,57 @@ import requests
 # --- PAGE CONFIG ---
 st.set_page_config(page_title="Noshay Navigations", page_icon="🧭", layout="wide")
 
-# --- ADAPTIVE CSS FOR LIGHT & DARK MODE ---
+# --- REFINED DUAL-MODE CSS (CLEAN DROPDOWN) ---
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-    /* 1. LIGHT MODE (DEFAULT) */
+    /* 1. COLOR VARIABLES */
     :root {
         --bg-color: #f1f4ef;
-        --text-main: #2e4a3d;
-        --text-sub: #3e5c46;
+        --text-header: #2e4a3d;
+        --text-body: #333333;
         --card-bg: #ffffff;
         --border-color: #d1d8d1;
-        --accent-hue: rgba(46, 74, 61, 0.1);
+        --accent-green: #3e5c46;
     }
 
-    /* 2. DARK MODE OVERRIDES */
     @media (prefers-color-scheme: dark) {
         :root {
-            --bg-color: #1a1c19; /* Deep Charcoal Green */
-            --text-main: #e2e3de; /* Off-white */
-            --text-sub: #a3ad9f; /* Muted Sage */
-            --card-bg: #242622; /* Slightly lighter charcoal */
-            --border-color: #3e423d;
-            --accent-hue: rgba(163, 173, 159, 0.1);
+            --bg-color: #0f1410;
+            --text-header: #c5d1c9;
+            --text-body: #e0e0e0;
+            --card-bg: #1a211b;
+            --border-color: #2d382f;
+            --accent-green: #89a391;
         }
     }
 
-    /* Apply variables to the App */
     .stApp {
         background-color: var(--bg-color);
         font-family: 'Inter', sans-serif;
     }
 
-    .nav-header {
+    /* 2. HEADER & DROPDOWN ALIGNMENT */
+    .nav-header-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 5px 0;
+        padding-bottom: 10px;
         border-bottom: 1px solid var(--border-color);
-        margin-bottom: 20px;
+        margin-bottom: 25px;
     }
 
+    /* Forces the selectbox to stay small and aligned right */
+    div[data-testid="stHorizontalBlock"] > div:last-child {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    /* 3. TYPOGRAPHY */
     .main-title {
-        color: var(--text-main);
+        color: var(--text-header);
         font-size: 52px;
         font-weight: 700;
         margin-bottom: 0px;
@@ -55,70 +62,61 @@ st.markdown("""
     }
 
     .tagline {
-        color: var(--text-sub);
+        color: var(--accent-green);
         font-size: 28px;
         font-weight: 500;
         margin-top: -5px;
         margin-bottom: 15px;
-        line-height: 1.2;
     }
 
     .sub-labels {
-        color: var(--text-main);
+        color: var(--text-header);
         font-size: 15px;
-        font-weight: 500;
-        background: var(--accent-hue);
+        background: rgba(137, 163, 145, 0.2);
         padding: 5px 12px;
         border-radius: 5px;
         display: inline-block;
     }
 
+    /* 4. COMPONENTS */
     .stat-card, .price-card-container {
         background-color: var(--card-bg);
         padding: 25px;
         border-radius: 12px;
         border: 1px solid var(--border-color);
-        color: var(--text-main);
+        text-align: center;
+        color: var(--text-body);
     }
 
-    .price-card-container {
-        border: 2px dashed #9fbcac; /* Keep the sage dash as a brand element */
+    .stButton > button {
+        background-color: #2e4a3d !important;
+        color: white !important;
+        border-radius: 6px !important;
     }
 
-    /* Ensure standard text follows the theme */
-    p, span, div, label {
-        color: var(--text-main);
-    }
-
-    /* Hamburger Dropdown adjustment */
-    div[data-baseweb="select"] {
-        width: 70px !important;
-        float: right;
-    }
-    
-    hr {
-        border: 0;
-        border-top: 1px solid var(--border-color);
-        margin: 30px 0;
-    }
+    hr { border-top: 1px solid var(--border-color); margin: 30px 0; }
     </style>
     """, unsafe_allow_html=True)
 
+# --- TOP NAVIGATION (IN-LINE) ---
+# Create a header row with logo/title and the dropdown
+header_col1, header_col2 = st.columns([3, 1])
 
-# --- TOP NAVIGATION (HAMBURGER STYLE) ---
-col_left, col_right = st.columns([5, 1])
-
-with col_left:
+with header_col1:
     st.markdown("""
-        <div style="display:flex; align-items:center; gap:12px;">
+        <div style="display:flex; align-items:center; gap:12px; padding-top:8px;">
             <span style="font-size:24px;">🧭</span>
-            <span style="font-weight:700; font-size:20px; color:#2e4a3d;">Noshay Navigations</span>
+            <span style="font-weight:700; font-size:22px; color:var(--text-header);">Noshay Navigations</span>
         </div>
     """, unsafe_allow_html=True)
 
-with col_right:
-    # The '☰' serves as the label for the dropdown
-    page = st.selectbox("☰", ["Coaching", "Research & Resources", "My Story & Accomplishments"], label_visibility="visible")
+with header_col2:
+    # Standard dropdown, right-aligned, no hamburger icon
+    page = st.selectbox(
+        "Select Page",
+        ["Coaching", "Resources", "About & Accomplishments"],
+        label_visibility="collapsed"
+    )
 
 st.markdown("<hr style='margin-top:0;'>", unsafe_allow_html=True)
 
