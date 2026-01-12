@@ -4,38 +4,63 @@ import requests
 # --- PAGE CONFIG ---
 st.set_page_config(page_title="Noshay Navigations", page_icon="🧭", layout="wide")
 
-# --- ADAPTIVE NATIVE CSS ---
+# --- REFINED DUAL-MODE CSS (ADJUSTED PALETTE) ---
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-    /* This targets the main background using Streamlit's internal variable */
+    /* 1. DEFINE COLOR VARIABLES FOR BOTH MODES */
+    :root {
+        --bg-color: #f1f4ef;        /* Original Light Sage */
+        --text-header: #2e4a3d;     /* Deep Green */
+        --text-body: #333333;       /* High contrast dark gray */
+        --card-bg: #ffffff;         /* Pure white cards */
+        --border-color: #d1d8d1;
+        --accent-green: #3e5c46;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --bg-color: #0f1410;    /* Very dark "Obsidian Green" */
+            --text-header: #c5d1c9; /* Soft silver-green */
+            --text-body: #e0e0e0;   /* Light gray body text */
+            --card-bg: #1a211b;     /* Dark forest card background */
+            --border-color: #2d382f;
+            --accent-green: #89a391; /* Lighter sage for dark mode visibility */
+        }
+    }
+
+    /* 2. APPLY VARIABLES TO YOUR ORIGINAL CSS STRUCTURE */
     .stApp {
+        background-color: var(--bg-color);
         font-family: 'Inter', sans-serif;
     }
 
-    /* Top Nav Bar - Bottom border adapts to theme */
     .nav-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 5px 0;
-        border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+        border-bottom: 1px solid var(--border-color);
         margin-bottom: 20px;
     }
 
-    /* Titles use the primary 'text' color of the current theme */
+    /* Hamburger Dropdown alignment */
+    div[data-baseweb="select"] {
+        width: 75px !important;
+        float: right;
+    }
+
     .main-title {
-        color: var(--text-color);
+        color: var(--text-header);
         font-size: 52px;
         font-weight: 700;
         margin-bottom: 0px;
         letter-spacing: -1px;
     }
 
-    /* Use your brand green as a secondary accent color */
     .tagline {
-        color: #3e5c46; 
+        color: var(--accent-green);
         font-size: 28px;
         font-weight: 500;
         margin-top: -5px;
@@ -43,48 +68,63 @@ st.markdown("""
         line-height: 1.2;
     }
 
-    /* Sub-labels with a semi-transparent background that works on light or dark */
     .sub-labels {
+        color: var(--text-header);
         font-size: 15px;
         font-weight: 500;
-        background: rgba(62, 92, 70, 0.15);
-        color: #3e5c46;
+        background: rgba(137, 163, 145, 0.2); /* Transparent accent */
         padding: 5px 12px;
         border-radius: 5px;
         display: inline-block;
     }
 
-    /* Cards that adapt their background based on the theme */
+    /* Pillar & Content Text */
+    .pillar-title {
+        color: var(--text-header);
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .pillar-text, .stMarkdown, p, li {
+        color: var(--text-body) !important;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    /* Cards */
     .stat-card, .price-card-container {
-        background-color: rgba(128, 128, 128, 0.05);
+        background-color: var(--card-bg);
         padding: 25px;
         border-radius: 12px;
-        border: 1px solid rgba(128, 128, 128, 0.1);
+        border: 1px solid var(--border-color);
         text-align: center;
+        color: var(--text-body);
+    }
+
+    .price-card-container {
+        border: 2px dashed var(--accent-green);
     }
 
     .stat-val {
-        color: #3e5c46;
+        color: var(--accent-green);
         font-size: 28px;
         font-weight: 700;
     }
 
-    /* Hamburger Dropdown fix */
-    div[data-baseweb="select"] {
-        width: 75px !important;
-        float: right;
-    }
-
-    /* Button stays brand-consistent */
+    /* Button - Branding remains static */
     .stButton > button {
         background-color: #2e4a3d !important;
         color: white !important;
+        border-radius: 6px !important;
+        padding: 10px 30px !important;
+        font-weight: 600 !important;
         border: none !important;
     }
 
     hr {
         border: 0;
-        border-top: 1px solid rgba(128, 128, 128, 0.2);
+        border-top: 1px solid var(--border-color);
         margin: 30px 0;
     }
     </style>
