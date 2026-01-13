@@ -2,6 +2,10 @@ import streamlit as st
 import requests
 import os
 
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
 # --- PAGE CONFIG ---
 st.set_page_config(page_title="Noshay Navigations", page_icon="🧭", layout="wide")
 
@@ -196,10 +200,12 @@ if page == "Coaching":
                 <div class="pillar-title">Foundation</div>
                 <div class="pillar-text">
                     Navigating the transition from road to trail or building your first base. 
-                    We map the terrain and the fun, ensuring a resilient engine for the long haul.
+                    We focus on the bio-logistics of a resilient engine, ensuring your 
+                    foundation is solid enough to support both your goals and your 9-to-5.
                 </div>
             </div>
         """, unsafe_allow_html=True)
+                    # We map the terrain and the fun, ensuring a resilient engine for the long haul.
 
     with p2:
         st.markdown(f"""
@@ -207,8 +213,9 @@ if page == "Coaching":
                 <span class="pillar-icon">🏔️</span>
                 <div class="pillar-title">Elevation</div>
                 <div class="pillar-text">
-                    Targeting a PR or a new distance? Performance logistics tailored to level up 
-                    your vertical game and technical efficiency on mountainous terrain.
+                    Targeting a PR or a new distance? We apply analytical rigor to 
+                    your vertical game and technical efficiency, refining the variables 
+                    to level up performance without blowing up your schedule.
                 </div>
             </div>
         """, unsafe_allow_html=True)
@@ -219,8 +226,10 @@ if page == "Coaching":
                 <span class="pillar-icon">🗺️</span>
                 <div class="pillar-title">Exploration</div>
                 <div class="pillar-text">
-                    Specialized for high-mileage life. We navigate the tactical shifts needed 
-                    for 100-milers while maintaining long-term health and speed.
+                    Ultra-distance training should be a source of joy, not a second job. 
+                    We prioritize adventure-led long runs and tactical shifts that 
+                    keep the 'why' alive, ensuring you reach the 100-mile finish line 
+                    with a full capacity battery and a love for the dirt.
                 </div>
             </div>
         """, unsafe_allow_html=True)
@@ -267,6 +276,43 @@ if page == "Coaching":
         </div>
     """, unsafe_allow_html=True)
 
+    # --- CONFIGURATION ---
+    # Use Streamlit Secrets for these in production
+    EMAIL = st.secrets["EMAIL"]
+    PASSWORD = st.secrets["PASSWORD"]
+    def send_professional_email(name, email, goal, message):
+        try:
+            # Create the email container
+            msg = MIMEMultipart()
+            msg['From'] = EMAIL
+            msg['To'] = EMAIL
+            msg['Subject'] = f"New Lead: {name} - {goal}"
+
+            # Email Body
+            body = f"""
+            New Inquiry from Noshay Navigations:
+            
+            Name: {name}
+            Email: {email}
+            Goal: {goal}
+            
+            Logistics & Schedule:
+            {message}
+            """
+            msg.attach(MIMEText(body, 'plain'))
+
+            # Connect to Gmail's server
+            server = smtplib.SMTP("smtp.gmail.com", 587)
+            server.starttls() # Secure the connection
+            server.login(EMAIL, PASSWORD)
+            server.send_message(msg)
+            server.quit()
+            return True
+        except Exception as e:
+            st.error(f"Error: {e}")
+            return False
+
+    # --- THE FORM ---
     with st.form("intake_form", clear_on_submit=True):
         col_name, col_email = st.columns(2)
         with col_name:
@@ -281,31 +327,54 @@ if page == "Coaching":
 
         if submit_button:
             if name and email:
-                # FormSubmit AJAX Endpoint
-                url = "https://formsubmit.co/ajax/jmnosh@gmail.com"
-                
-                payload = {
-                    "Name": name,
-                    "Email": email,
-                    "Goal": goal,
-                    "Message": msg,
-                    "_subject": f"New Noshay Navigations Lead: {name}",
-                    "_captcha": "false"  # Optional: Disable captcha for cleaner AJAX experience
-                }
-                
-                try:
-                    # Using a timeout to ensure the app doesn't hang
-                    response = requests.post(url, json=payload, timeout=10)
-                    
-                    if response.status_code == 200:
+                with st.spinner("Sending intake form..."):
+                    if send_professional_email(name, email, goal, msg):
                         st.success("✅ Logistics received. I'll reach out to start your mapping shortly!")
                         st.balloons()
-                    else:
-                        st.error("Error sending request. Please check your connection and try again.")
-                except Exception as e:
-                    st.error("Connection error. Please verify your internet and try again.")
             else:
-                st.warning("Please provide both your name and email to initiate the briefing.")
+                st.warning("Error sending request. Please fill in all fields or check your connection and try again.")
+
+    # with st.form("intake_form", clear_on_submit=True):
+    #     col_name, col_email = st.columns(2)
+    #     with col_name:
+    #         name = st.text_input("Name", placeholder="Your Name")
+    #     with col_email:
+    #         email = st.text_input("Email", placeholder="Your Email Address")
+        
+    #     goal = st.text_input("Training Goal / Target Race / Milestone", placeholder="e.g., Running Consistency or Oregon Cascades 100M or First 10K")
+    #     msg = st.text_area("Logistics & Schedule", placeholder="Tell me about your current weekly mileage and commitments...")
+        
+    #     submit_button = st.form_submit_button("Request Consultation")
+
+    #     if submit_button:
+    #         if name and email:
+    #             # FormSubmit AJAX Endpoint
+    #             CONTACT_EMAIL = "jmnosh@gmail.com"
+    #             url = f"https://formsubmit.co/ajax/{CONTACT_EMAIL}"
+                
+    #             payload = {
+    #                 "Name": name,
+    #                 "Email": email,
+    #                 "Goal": goal,
+    #                 "Message": msg,
+    #                 "_subject": f"New Noshay Navigations Lead: {name}",
+    #                 "_captcha": "false"  # Optional: Disable captcha for cleaner AJAX experience
+    #             }
+                
+    #             try:
+    #                 # Using a timeout to ensure the app doesn't hang
+    #                 response = requests.post(url, json=payload, timeout=10)
+                    
+    #                 if response.status_code == 200:
+            #             st.success("✅ Logistics received. I'll reach out to start your mapping shortly!")
+            #             st.balloons()
+            #         else:
+            #             st.error("Error sending request. Please check your connection and try again.")
+            #     except Exception as e:
+            #         # st.error("Connection error. Please verify your internet and try again.")
+            #         st.error(f"Error {response.status_code}: {response.text}")
+            # else:
+            #     st.warning("Please provide both your name and email to initiate the briefing.")
 
 elif page == "Research & Resources":
 
