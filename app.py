@@ -158,13 +158,14 @@ if page == "Coaching":
         st.markdown('<div class="pillar-text">Navigating the transition from road to trail or building your first base. We map the terrain and the fun.</div>', unsafe_allow_html=True)
     with p2:
         st.markdown('<div class="pillar-title">🏔️ Elevation</div>', unsafe_allow_html=True)
-        st.markdown('<div class="pillar-text">Targeting a PR or a new distance? Performance logistics tailored to level up your vertical game.</div>', unsafe_allow_html=True)
+        st.markdown('<div class="pillar-text">Targeting a PR or a new distance? Performance logistics tailored to level up relative to your individual goals.</div>', unsafe_allow_html=True)
     with p3:
         st.markdown('<div class="pillar-title">🗺️ Exploration</div>', unsafe_allow_html=True)
-        st.markdown('<div class="pillar-text">Specialized for high-mileage life. We navigate the tactical shifts needed for long-term health and speed.</div>', unsafe_allow_html=True)
+        st.markdown('<div class="pillar-text">Specialized for the adventures of life. We navigate the tactical shifts needed for long-term health and speed.</div>', unsafe_allow_html=True)
 
     st.markdown('<div style="color: var(--text-header); font-size: 26px; font-weight: 700; margin-top: 40px; margin-bottom: 15px;">The Strategy of the Stride</div>', unsafe_allow_html=True)
-    st.markdown('<div style="font-size: 15px; line-height: 1.7; color: var(--text-body);">Running doesn’t happen in a vacuum—it happens between meetings, family, and daily commitments. Whether training for your first 5k or a 100-miler in the PNW, I provide the logistics of performance mapped to your real life. I provide the map so you can focus on the exploration.</div>', unsafe_allow_html=True)
+    # st.markdown('<div style="font-size: 15px; line-height: 1.7; color: var(--text-body);">Running doesn’t happen in a vacuum—it happens between meetings, family, and daily commitments. Whether training for your first 5k or a 100-miler, I provide the logistics of performance mapped to your real life. I provide the map so you can focus on the exploration.</div>', unsafe_allow_html=True)
+    st.markdown('<div style="font-size: 15px; line-height: 1.7; color: var(--text-body);">Performance is a logistical puzzle. Running doesn’t exist in a vacuum; it happens between meetings, family, and daily commitments. Whether training for your first 5k or a 100-miler, I bridge the gap between your ambitious goals and your day to day life. Using science-backed methodology, I coordinate the performance logistics of your training to align with your reality, so you can focus entirely on the exploration.</div>', unsafe_allow_html=True)
     st.markdown("<hr>", unsafe_allow_html=True)
 
     st.markdown('<div style="color: var(--text-header); font-size: 26px; font-weight: 700; margin-bottom: 25px;">Coaching Navigation Package</div>', unsafe_allow_html=True)
@@ -257,8 +258,14 @@ elif page == "About & Accomplishments":
         humid, rugged forests of the East Coast—I have learned that training for a 100-miler shouldn't 
         require sacrificing your career or family life.
         
-        My coaching philosophy is simple: **I provide the map, you provide the engine.**
+        My own coordinates have shifted over the years: I evolved from a youth soccer player and collegiate triathlete 
+        into the novice track and road circuits before finding my home in the ultra-trail community. This journey taught 
+        me that while every athlete's path is distinct, the objective is the same: finding the specific strategy that turns 
+        a daunting distance into an achievable reality.
+
+        My coaching philosophy is simple: **Your Life is the Terrain. We Map the Training.**
         """)
+        # My coaching philosophy is simple: **I provide the map, you provide the engine.**
         st.link_button("View Full UltraSignup Profile", "https://ultrasignup.com/results_participant.aspx?fname=Jaclyn&lname=Noshay")
 
     with col_stats:
@@ -276,13 +283,38 @@ elif page == "About & Accomplishments":
             </div>
         """, unsafe_allow_html=True)
 
+    st.divider()
+
+    # --- PERSONAL BESTS SECTION ---
+    st.markdown('### ⚡ Personal Bests')
+    pr_col1, pr_col2 = st.columns(2)
+    
+    with pr_col1:
+        st.markdown("**Road & Speed**")
+        st.markdown("""
+        * **5K:** 18:53 (2020)
+        * **Half Marathon:** 1:28:36 (Knoxville Half Marathon 2023)
+        * **Marathon:** 3:07:11 (Boston Marathon 2024)
+        """)
+
+    with pr_col2:
+        st.markdown("**Trail & Ultra**")
+        st.markdown("""
+        * **50K:** 4:20:34 (Chester Woods 2020)
+        * **100K:** 10:33:51 (Zion Ultras 2023)
+        * **100 Miler:** 17:51:03 (Oregon Cascades 2024)
+        """)
+
     st.markdown("### 🏆 The Field Log")
     st.table([
-        {"Year": "2024", "Event": "Oregon Cascades 100M", "Rank": "5th Female", "Category": "100 Miler"},
-        {"Year": "2024", "Event": "Siskiyou Out Back 100K", "Rank": "13th Overall", "Category": "100K"},
-        {"Year": "2024", "Event": "Smith Rock Classic 50K", "Rank": "8th Female", "Category": "50K"},
-        {"Year": "2023", "Event": "Superior Fall Trail Race 100M", "Rank": "8th Female", "Category": "100 Miler"},
-        {"Year": "2022", "Event": "No Business 100M", "Rank": "6th Female", "Category": "100 Miler"}
+        {"Year": "2025", "Event": "The Bear 100", "Rank": "5th Female, 27th Overall", "Category": "100 Miler"},
+        {"Year": "2025", "Event": "Miwok 100k", "Rank": "4th Female, 30th Overall", "Category": "100K"},
+        {"Year": "2024", "Event": "Oregon Cascades 100M", "Rank": "2nd Female, 5th Overall", "Category": "100 Miler"},
+        {"Year": "2024", "Event": "Volcanic 50K", "Rank": "2nd Female, 12th Overall", "Category": "50K"},
+        {"Year": "2024", "Event": "Siskiyou Out Back 100K", "Rank": "3rd Female, 13th Overall", "Category": "100K"},
+        {"Year": "2024", "Event": "Smith Rock Classic 50K", "Rank": "2nd Female, 8th Overall", "Category": "50K"},
+        {"Year": "2023", "Event": "Superior Fall Trail Race 100M", "Rank": "2nd Female, 8th Overall", "Category": "100 Miler"},
+        {"Year": "2022", "Event": "No Business 100M", "Rank": "1st Female, 6th Overall", "Category": "100 Miler"}
     ])
 
 # --- FOOTER ---
