@@ -468,9 +468,9 @@ elif page == "My Story & Accomplishments":
             <p>
                 In the ultra-running world, the "grind" is often glorified at the expense of everything 
                 else. But I’ve learned that a training plan is a <b>failure</b> if it requires you to blow 
-                up your professional integrity or ignore the people you love. If a workout doesn’t 
-                account for the Tuesday where you’re mentally drained from a data-heavy day, or the 
-                weekend you’ve promised to a friend’s wedding, that plan is useless.
+                up your professional integrity or ignore the people you love. A plan that doesn’t 
+                account for the Tuesday where you’re mentally drained from a data-heavy day, a friend’s 
+                wedding weekend, or a Saturday spent on the sidelines of soccer games is destined to fail.
             </p>
             <p>
                 I am obsessed with the piece of the sport we don't talk about enough: 
