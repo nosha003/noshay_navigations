@@ -249,7 +249,7 @@ if page == "Coaching":
         st.write("✅ **COROS Training Hub:** Full utilization of technical metrics.")
 
     with pkg_col2:
-        st.markdown("#### **Communication:**")
+        st.markdown("#### Communication:")
         st.write("📞 **Monthly Phone Call:** Deep dive into strategy and progress.")
         st.write("💬 **Ad Hoc Text Support:** Quick questions? On-the-fly adjustments? I'm a text away.")
         st.write("🏃 **Expert Guidance:** Specialized trail, ultra, and exploration advice.")
