@@ -400,7 +400,6 @@ elif page == "Research & Resources":
 
     st.markdown("### 🧪 Advanced Endurance Science")
     st.write("Cutting-edge studies for the long-distance specialist.")
-    st.write("Recent research focusing on the 'Logistics of the Engine'.")
     st.markdown("""
     * **[The Fueling Window: Intra-workout timing](https://pubmed.ncbi.nlm.nih.gov/):** Recent studies on 'gut training' suggest consistent 60-90g/hr intake regardless of intensity to prevent late-race failure.
     * **[Intensity vs. Distance (2023 Study)](https://www.frontiersin.org/journals/physiology):** New data on 'Critical Speed' in ultras—how training at higher intensities preserves muscle fiber recruitment during 100-mile efforts.
