@@ -199,9 +199,9 @@ if page == "Coaching":
                 <span class="pillar-icon">🌱</span>
                 <div class="pillar-title">Foundation</div>
                 <div class="pillar-text">
-                    Navigating the transition from road to trail or building your first base. 
-                    We focus on the bio-logistics of a resilient engine, ensuring your 
-                    foundation is solid enough to support both your goals and your 9-to-5.
+                    Navigating the transition from road to trail or building your first base, we focus on the 
+                    <b>bio-logistics</b> of a resilient engine. We build a foundation solid enough to support 
+                    your mileage goals while accounting for the energy needed for your day to day life.
                 </div>
             </div>
         """, unsafe_allow_html=True)
@@ -213,9 +213,8 @@ if page == "Coaching":
                 <span class="pillar-icon">🏔️</span>
                 <div class="pillar-title">Elevation</div>
                 <div class="pillar-text">
-                    Targeting a PR or a new distance? We apply analytical rigor to 
-                    your vertical game and technical efficiency, refining the variables 
-                    to level up performance without blowing up your schedule.
+                    Targeting a PR or a new distance? We apply analytical rigor to your vertical game and 
+                    technical efficiency, refining the variables to level up performance however you define it.
                 </div>
             </div>
         """, unsafe_allow_html=True)
@@ -226,10 +225,9 @@ if page == "Coaching":
                 <span class="pillar-icon">🗺️</span>
                 <div class="pillar-title">Exploration</div>
                 <div class="pillar-text">
-                    Ultra-distance training should be a source of joy, not a second job. 
-                    We prioritize adventure-led long runs and tactical shifts that 
-                    keep the 'why' alive, ensuring you reach the 100-mile finish line 
-                    with a full capacity battery and a love for the dirt.
+                    Ultra-distance training should be a source of joy, not a second job. We prioritize adventure-led 
+                    long runs and tactical shifts that keep the 'why' alive, ensuring you reach the finish line 
+                    with a full capacity battery and a genuine love for the process and the dirt.
                 </div>
             </div>
         """, unsafe_allow_html=True)
