@@ -131,7 +131,7 @@ with header_col1:
 with header_col2:
     page = st.selectbox(
         "Select Page",
-        ["Coaching", "Resources", "About & Accomplishments"],
+        ["Coaching", "Research & Resources", "My Story & Accomplishments"],
         label_visibility="collapsed"
     )
 
@@ -224,7 +224,7 @@ if page == "Coaching":
             else:
                 st.warning("Please provide both your name and email address.")
 
-elif page == "Resources":
+elif page == "Research & Resources":
     st.markdown('<div class="main-title">Resource Library</div>', unsafe_allow_html=True)
     st.markdown('<div class="tagline">Coordinates for the starting line and the long haul.</div>', unsafe_allow_html=True)
     
@@ -242,7 +242,7 @@ elif page == "Resources":
         * **[Runners World Strength for Runners](https://www.runnersworld.com/strength-training/):** Foundational injury prevention.
         * **[Strength for Trail Runners](https://www.irunfar.com/):** Pre-hab routines specifically for the eccentric loading of PNW downhills.
         """)
-        
+
         st.markdown("### 🧪 Advanced Endurance Science")
         st.write("Cutting-edge studies for the long-distance specialist.")
         st.write("Recent research focusing on the 'Logistics of the Engine'.")
@@ -276,16 +276,16 @@ elif page == "Resources":
         """)
 
 
-elif page == "About & Accomplishments":
-    st.markdown('<div class="main-title">About Jaclyn Noshay</div>', unsafe_allow_html=True)
+elif page == "My Story & Accomplishments":
+    st.markdown('<div class="main-title">Who am I?</div>', unsafe_allow_html=True)
     
     col_bio, col_stats = st.columns([1.5, 1])
     
     with col_bio:
         st.write("""
-        I am a Portland-based ultra-endurance athlete and coach who believes that performance is a logistical puzzle. 
-        With over a decade of experience on the dirt—ranging from the technical alpine trails of the PNW to the 
-        humid, rugged forests of the East Coast—I have learned that training for a 100-miler shouldn't 
+        My name is Jaclyn Noshy. I am a Portland-based ultra-endurance athlete and coach who believes that performance 
+        is a logistical puzzle. With over a decade of experience on the dirt—ranging from the technical alpine trails of 
+        the PNW to the humid, rugged forests of the East Coast—I have learned that training for a 100-miler shouldn't 
         require sacrificing your career or family life.
         
         My own coordinates have shifted over the years: I evolved from a youth soccer player and collegiate triathlete 
