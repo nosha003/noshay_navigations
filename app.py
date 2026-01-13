@@ -213,8 +213,9 @@ if page == "Coaching":
                 <span class="pillar-icon">🏔️</span>
                 <div class="pillar-title">Elevation</div>
                 <div class="pillar-text">
-                    Targeting a PR or a new distance? We apply analytical rigor to your vertical game and 
-                    technical efficiency, refining the variables to level up performance however you define it.
+                    Targeting a PR or a new distance? <b>Elevation</b> is the strategic leap from where you are to 
+                    the athlete you want to become. We apply analytical rigor to movement and energy variables to 
+                    level up performance—<b>however you define it.</b>
                 </div>
             </div>
         """, unsafe_allow_html=True)
