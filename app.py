@@ -408,8 +408,8 @@ elif page == "Research & Resources":
     st.markdown("""
     * **[Strava Global Heatmap](https://www.strava.com/heatmap):** Essential for finding 'hidden' trail connectors in the Gorge or Tillamook.
     * **[AllTrails (Condition Reports)](https://www.alltrails.com/):** Use this specifically for recent 'Trip Reports' to check for snow levels or downed trees.
-    * **[Gaia GPS](https://www.gaiagps.com/):** My preferred tool for mapping technical PNW routes where cell service is non-existent.
-    * **[CalTopo](https://caltopo.com/):** Technical elevation profile planning for high-vert days.
+    * **[Gaia GPS](https://www.gaiagps.com/):** Tool for mapping technical PNW routes where cell service is non-existent.
+    * **[Coros Training Hub](https://training.coros.com/)** – A powerful public platform for analyzing your workout data, tracking load, and managing your "infrastructure" over time.
     """)
 
     st.markdown("### 🌲 PNW Trails & Communities")
