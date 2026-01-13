@@ -264,17 +264,9 @@ if page == "Coaching":
 
     st.markdown("<hr>", unsafe_allow_html=True)
 
-    st.markdown('<div style="color: var(--text-header); font-size: 26px; font-weight: 700; margin-bottom: 20px;">Ready to Plot Your Course?</div>', unsafe_allow_html=True)
-    st.write("Ready to Plot Your Course? Submit the intake form below. I will schedule a brief 30-minute connection to review your logistics and verify the fit before we begin mapping your training.")
-
     # --- INTAKE FORM SECTION ---
-    st.markdown('<div id="intake" style="color: var(--text-header); font-size: 26px; font-weight: 700; margin-top: 40px; margin-bottom: 10px;">Ready to Plot Your Course?</div>', unsafe_allow_html=True)
-    st.markdown("""
-        <div style="font-size: 16px; color: var(--text-body); margin-bottom: 25px;">
-            <b>Navigation Briefing:</b> To begin mapping your season, please complete the intake form below. 
-            Once received, I will reach out to schedule a 30-minute strategic consultation.
-        </div>
-    """, unsafe_allow_html=True)
+    st.markdown('<div style="color: var(--text-header); font-size: 26px; font-weight: 700; margin-bottom: 20px;">Ready to Plot Your Course?</div>', unsafe_allow_html=True)
+    st.write("Ready to Plot Your Course? Submit the intake form below. Once received, I will reach out to schedule a 30-minute connection to review your logistics and verify the fit before we begin mapping your training.", unsafe_allow_html=True)
 
     # --- CONFIGURATION ---
     # Use Streamlit Secrets for these in production
