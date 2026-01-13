@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+import os
 
 # --- PAGE CONFIG ---
 st.set_page_config(page_title="Noshay Navigations", page_icon="🧭", layout="wide")
@@ -167,7 +168,8 @@ if page == "Coaching":
         st.markdown('<div class="sub-labels">🏁 Portland-Based Trail & Ultra Specialist | Performance Logistics</div>', unsafe_allow_html=True)
 
     with col_img:
-        st.image("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=500&q=80", use_container_width=True)
+        # st.image("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=500&q=80", use_container_width=True)
+        st.image("images/landscape.jpg", use_container_width=True)
 
     st.markdown("<hr>", unsafe_allow_html=True)
 
@@ -256,36 +258,57 @@ if page == "Coaching":
     st.markdown('<div style="color: var(--text-header); font-size: 26px; font-weight: 700; margin-bottom: 20px;">Ready to Plot Your Course?</div>', unsafe_allow_html=True)
     st.write("Ready to Plot Your Course? Submit the intake form below. I will schedule a brief 30-minute connection to review your logistics and verify the fit before we begin mapping your training.")
 
+    # --- INTAKE FORM SECTION ---
+    st.markdown('<div id="intake" style="color: var(--text-header); font-size: 26px; font-weight: 700; margin-top: 40px; margin-bottom: 10px;">Ready to Plot Your Course?</div>', unsafe_allow_html=True)
+    st.markdown("""
+        <div style="font-size: 16px; color: var(--text-body); margin-bottom: 25px;">
+            <b>Navigation Briefing:</b> To begin mapping your season, please complete the intake form below. 
+            Once received, I will reach out to schedule a 30-minute strategic consultation.
+        </div>
+    """, unsafe_allow_html=True)
+
     with st.form("intake_form", clear_on_submit=True):
-        name = st.text_input("Name", placeholder="Your Name")
-        email = st.text_input("Email", placeholder="Your Email Address")
-        goal = st.text_input("Goal", placeholder="What race or milestone are we targeting?")
-        msg = st.text_area("Message", placeholder="Tell me about your schedule and goals...")
+        col_name, col_email = st.columns(2)
+        with col_name:
+            name = st.text_input("Name", placeholder="Your Name")
+        with col_email:
+            email = st.text_input("Email", placeholder="Your Email Address")
+        
+        goal = st.text_input("Training Goal / Target Race / Milestone", placeholder="e.g., Running Consistency or Oregon Cascades 100M or First 10K")
+        msg = st.text_area("Logistics & Schedule", placeholder="Tell me about your current weekly mileage and commitments...")
         
         submit_button = st.form_submit_button("Request Consultation")
 
         if submit_button:
             if name and email:
-                url = f"https://formsubmit.co/ajax/jmnosh@gmail.com"
+                # FormSubmit AJAX Endpoint
+                url = "https://formsubmit.co/ajax/jmnosh@gmail.com"
+                
                 payload = {
                     "Name": name,
                     "Email": email,
                     "Goal": goal,
                     "Message": msg,
-                    "_subject": f"New Noshay Navigations Lead: {name}"
+                    "_subject": f"New Noshay Navigations Lead: {name}",
+                    "_captcha": "false"  # Optional: Disable captcha for cleaner AJAX experience
                 }
+                
                 try:
-                    response = requests.post(url, json=payload)
+                    # Using a timeout to ensure the app doesn't hang
+                    response = requests.post(url, json=payload, timeout=10)
+                    
                     if response.status_code == 200:
-                        st.success("Logistics received. I'll reach out to start your mapping shortly!")
+                        st.success("✅ Logistics received. I'll reach out to start your mapping shortly!")
+                        st.balloons()
                     else:
-                        st.error("Error sending request. Please try again.")
-                except:
-                    st.error("Connection error. Please try again.")
+                        st.error("Error sending request. Please check your connection and try again.")
+                except Exception as e:
+                    st.error("Connection error. Please verify your internet and try again.")
             else:
-                st.warning("Please provide both your name and email address.")
+                st.warning("Please provide both your name and email to initiate the briefing.")
 
 elif page == "Research & Resources":
+
     st.markdown('<div class="main-title">Resource Library</div>', unsafe_allow_html=True)
     st.markdown('<div class="tagline">Coordinates for the starting line and the long haul.</div>', unsafe_allow_html=True)
     
@@ -335,42 +358,80 @@ elif page == "Research & Resources":
 elif page == "My Story & Accomplishments":
     st.markdown('<div class="main-title">Who am I?</div>', unsafe_allow_html=True)
     
-    col_bio, col_stats = st.columns([1.5, 1])
+    col_bio, col_image = st.columns([1.6, 1])
     
     with col_bio:
-        st.write("""
-        My name is Jaclyn Noshy. I am a Portland-based ultra-endurance athlete and coach who believes that performance 
-        is a logistical puzzle. With over a decade of experience on the dirt—ranging from the technical alpine trails of 
-        the PNW to the humid, rugged forests of the East Coast—I have learned that training for a 100-miler shouldn't 
-        require sacrificing your career or family life.
+        st.markdown(f"""
+        <div style="font-size: 16px; line-height: 1.7; color: var(--text-body); text-align: justify;">
+            <p>
+                My name is <b>Jaclyn Noshay</b>. I am a Portland-based ultra-endurance athlete and a 
+                <b>Genetics PhD</b> working in Agricultural R&D. My professional life is spent solving 
+                age-old biological puzzles—using data and strategy to rethink how we grow and sustain life. 
+                I am fascinated by novel approaches to complex systems, whether that’s inside a DNA 
+                sequence or out on a single-track trail.
+            </p>
+            <p>
+                My own athletic coordinates have shifted over a decade of experience—evolving from 
+                a youth soccer player and collegiate triathlete into the novice track and road 
+                circuits before finding my home in the ultra-trail community. This journey taught 
+                me that while every athlete's path is distinct, the objective is always the same: 
+                finding the specific strategy that turns a daunting distance into an achievable reality.
+            </p>
+            <p>
+                Two years ago, my husband and I moved to Portland to shorten the gap between our 
+                front door and the mountains. We wanted to stop "fitting in" the outdoors and start 
+                integrating it. But even with the trails closer, the juggle didn't get easier—it 
+                just got more intentional.
+            </p>
+            <p>
+                <b>The real talk is this:</b> I am not a professional athlete, and if you’re reading this, 
+                you likely aren't either. I don’t have a six-hour recovery window or a support crew 
+                tracking my every move. I am the scientist, usually behind a computer managing 
+                the logistics of R&D while navigating the same crowded 24-hour clock that you are. 
+                I have a career to maintain, a family to be present for, and a calendar that doesn't 
+                care about my mileage goals.
+            </p>
+            <p>
+                In the ultra-running world, the "grind" is often glorified at the expense of everything 
+                else. But I’ve learned that a training plan is a <b>failure</b> if it requires you to blow 
+                up your professional integrity or ignore the people you love. If a workout doesn’t 
+                account for the Tuesday where you’re mentally drained from a data-heavy day, or the 
+                weekend you’ve promised to a friend’s wedding, that plan is useless.
+            </p>
+            <p>
+                I am obsessed with the piece of the sport we don't talk about enough: 
+                <b>The Bio-Logistics of the Whole Person.</b> Performance isn't just about what 
+                your legs can do; it’s about how your training interacts with your stress levels, 
+                your sleep, and your "capacity battery."
+            </p>
+            <p>
+                Using the same analytical rigor I apply to genetics, I help athletes map their 
+                training to the actual terrain of their lives. We don't just look at heart rate zones; 
+                we look at your calendar. We don't just count miles; we count the cost of the juggle.
+            </p>
+            <p style="font-size: 18px; color: var(--text-header); font-weight: 700; margin-top: 25px;">
+                Your Life is the Terrain. We Map the Training.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
         
-        My own coordinates have shifted over the years: I evolved from a youth soccer player and collegiate triathlete 
-        into the novice track and road circuits before finding my home in the ultra-trail community. This journey taught 
-        me that while every athlete's path is distinct, the objective is the same: finding the specific strategy that turns 
-        a daunting distance into an achievable reality.
-
-        My coaching philosophy is simple: **Your Life is the Terrain. We Map the Training.**
-        """)
-        # My coaching philosophy is simple: **I provide the map, you provide the engine.**
+        st.write("") # Spacer
         st.link_button("View Full UltraSignup Profile", "https://ultrasignup.com/results_participant.aspx?fname=Jaclyn&lname=Noshay")
 
-    with col_stats:
-        st.markdown(f"""
-            <div class="stat-card">
-                <div style="font-size:14px; color: var(--text-body); opacity: 0.8;">UltraSignup Rank</div>
-                <div class="stat-val">91.85%</div>
-                <div style="font-size:12px; margin-top:10px;">Consistently ranked in the top tier of female ultra-athletes.</div>
-            </div>
-            <br>
-            <div class="stat-card">
-                <div style="font-size:14px; color: var(--text-body); opacity: 0.8;">Overall Finish Rate</div>
-                <div class="stat-val">100%</div>
-                <div style="font-size:12px; margin-top:10px;">Technical efficiency across 100M, 100K, and 50K distances.</div>
-            </div>
-        """, unsafe_allow_html=True)
+    with col_image:
+        # Vertical Stack of images to fill the height of the bio
+        st.image("images/nobusiness.jpg", caption="No Business - First 100 mile race!", use_container_width=False)
+        
+        # st.markdown("<div style='margin-bottom: 15px;'></div>", unsafe_allow_html=True) # Custom spacer
+        
+        # st.image("images/icecream.jpg", caption="Traveling the world one step and ice cream code at a time <3", use_container_width=True)
+
+        # st.markdown("<div style='margin-bottom: 15px;'></div>", unsafe_allow_html=True) # Custom spacer
+        
+        # st.image("images/snow.jpg", caption="All Terrain Adventures", use_container_width=True)
 
     st.divider()
-
+    
     # --- PERSONAL BESTS SECTION ---
     st.markdown('### ⚡ Personal Bests')
     pr_col1, pr_col2 = st.columns(2)
@@ -392,6 +453,26 @@ elif page == "My Story & Accomplishments":
         """)
 
     st.markdown("### 🏆 The Field Log")
+    col_stats1, col_stats2 = st.columns(2)
+    with col_stats1:
+        st.markdown(f"""
+            <div class="stat-card">
+                <div style="font-size:14px; color: var(--text-body); opacity: 0.8;">UltraSignup Rank</div>
+                <div class="stat-val">91.85%</div>
+                <div style="font-size:12px; margin-top:10px;">Consistently ranked in the top tier of female ultra-athletes.</div>
+            </div>
+        """, unsafe_allow_html=True)
+    with col_stats2:
+        st.markdown(f"""
+            <div class="stat-card">
+                <div style="font-size:14px; color: var(--text-body); opacity: 0.8;">Overall Finish Rate</div>
+                <div class="stat-val">100%</div>
+                <div style="font-size:12px; margin-top:10px;">Technical efficiency across 100M, 100K, and 50K distances.</div>
+            </div>
+        """, unsafe_allow_html=True)
+
+    st.divider()
+
     st.table([
         {"Year": "2025", "Event": "The Bear 100", "Rank": "5th Female, 27th Overall", "Category": "100 Miler"},
         {"Year": "2025", "Event": "Miwok 100k", "Rank": "4th Female, 30th Overall", "Category": "100K"},
