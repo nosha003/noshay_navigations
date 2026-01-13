@@ -78,6 +78,18 @@ st.markdown("""
         display: inline-block;
     }
 
+    .pillar-title {
+        color: var(--text-header);
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+    .pillar-text {
+        font-size: 14px;
+        color: var(--text-body);
+        line-height: 1.6;
+    }
+
     /* 4. COMPONENTS */
     .stat-card, .price-card-container {
         background-color: var(--card-bg);
@@ -86,6 +98,13 @@ st.markdown("""
         border: 1px solid var(--border-color);
         text-align: center;
         color: var(--text-body);
+    }
+
+    .stat-val {
+        color: var(--accent-green);
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 5px;
     }
 
     .stButton > button {
@@ -99,7 +118,6 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # --- TOP NAVIGATION (IN-LINE) ---
-# Create a header row with logo/title and the dropdown
 header_col1, header_col2 = st.columns([3, 1])
 
 with header_col1:
@@ -111,7 +129,6 @@ with header_col1:
     """, unsafe_allow_html=True)
 
 with header_col2:
-    # Standard dropdown, right-aligned, no hamburger icon
     page = st.selectbox(
         "Select Page",
         ["Coaching", "Resources", "About & Accomplishments"],
@@ -123,8 +140,7 @@ st.markdown("<hr style='margin-top:0;'>", unsafe_allow_html=True)
 # --- PAGE LOGIC ---
 
 if page == "Coaching":
-    # --- HERO SECTION ---
-    col_text, col_img = st.columns([2.5, 1]) # Tightened ratio for larger slogan
+    col_text, col_img = st.columns([2.5, 1])
 
     with col_text:
         st.markdown('<div class="main-title">Noshay Navigations</div>', unsafe_allow_html=True)
@@ -132,12 +148,10 @@ if page == "Coaching":
         st.markdown('<div class="sub-labels">🏁 Portland-Based Trail & Ultra Specialist | Performance Logistics</div>', unsafe_allow_html=True)
 
     with col_img:
-        # Smaller, cleaner image footprint
         st.image("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=500&q=80", use_container_width=True)
 
     st.markdown("<hr>", unsafe_allow_html=True)
 
-    # --- THE PILLARS ---
     p1, p2, p3 = st.columns(3)
     with p1:
         st.markdown('<div class="pillar-title">🌱 Foundation</div>', unsafe_allow_html=True)
@@ -149,18 +163,11 @@ if page == "Coaching":
         st.markdown('<div class="pillar-title">🗺️ Exploration</div>', unsafe_allow_html=True)
         st.markdown('<div class="pillar-text">Specialized for high-mileage life. We navigate the tactical shifts needed for long-term health and speed.</div>', unsafe_allow_html=True)
 
-    # --- STRATEGY SECTION ---
-    st.markdown('<div style="color: #1a1a1a; font-size: 26px; font-weight: 700; margin-top: 40px; margin-bottom: 15px;">The Strategy of the Stride</div>', unsafe_allow_html=True)
-    st.markdown('<div style="font-size: 15px; line-height: 1.7; color: #333;">Running doesn’t happen in a vacuum—it happens between meetings, family, and daily commitments. Whether training for your first 5k or a 100-miler in the PNW, I provide the logistics of performance mapped to your real life. I provide the map so you can focus on the exploration.</div>', unsafe_allow_html=True)
+    st.markdown('<div style="color: var(--text-header); font-size: 26px; font-weight: 700; margin-top: 40px; margin-bottom: 15px;">The Strategy of the Stride</div>', unsafe_allow_html=True)
+    st.markdown('<div style="font-size: 15px; line-height: 1.7; color: var(--text-body);">Running doesn’t happen in a vacuum—it happens between meetings, family, and daily commitments. Whether training for your first 5k or a 100-miler in the PNW, I provide the logistics of performance mapped to your real life. I provide the map so you can focus on the exploration.</div>', unsafe_allow_html=True)
     st.markdown("<hr>", unsafe_allow_html=True)
 
-    # --- COACHING PACKAGE SECTION ---
-    st.markdown('<div style="color: #1a1a1a; font-size: 26px; font-weight: 700; margin-bottom: 25px;">Coaching Navigation Package</div>', unsafe_allow_html=True)
-
-    pkg_col1, pkg_col2 = st.columns([1, 1.2])
-
-    # --- COACHING PACKAGE SECTION ---
-    st.markdown('<div style="color: #1a1a1a; font-size: 26px; font-weight: 700; margin-bottom: 25px;">Coaching Navigation Package</div>', unsafe_allow_html=True)
+    st.markdown('<div style="color: var(--text-header); font-size: 26px; font-weight: 700; margin-bottom: 25px;">Coaching Navigation Package</div>', unsafe_allow_html=True)
 
     pkg_col1, pkg_col2 = st.columns([1, 1.2])
 
@@ -176,17 +183,16 @@ if page == "Coaching":
         st.write("💬 **Ad Hoc Text Support:** Quick questions? On-the-fly adjustments? I'm a text away.")
         st.write("🏃 **Expert Guidance:** Specialized trail, ultra, and exploration advice.")
         
-    st.markdown("""
+    st.markdown(f"""
             <div class="price-card-container">
-                <div style="color: #2e4a3d; font-size: 36px; font-weight: 700;">$100 <span style="font-size:18px; font-weight:400; color:#666;">/ month</span></div>
-                <div style="color:#666; font-size:14px; margin-top:8px;">Comprehensive Coaching for Every Distance</div>
+                <div style="color: var(--accent-green); font-size: 36px; font-weight: 700;">$100 <span style="font-size:18px; font-weight:400; color: var(--text-body); opacity: 0.7;">/ month</span></div>
+                <div style="color: var(--text-body); font-size:14px; margin-top:8px;">Comprehensive Coaching for Every Distance</div>
             </div>
         """, unsafe_allow_html=True)
 
     st.markdown("<hr>", unsafe_allow_html=True)
 
-    # --- INTAKE FORM SECTION ---
-    st.markdown('<div style="color: #1a1a1a; font-size: 26px; font-weight: 700; margin-bottom: 20px;">Ready to Plot Your Course?</div>', unsafe_allow_html=True)
+    st.markdown('<div style="color: var(--text-header); font-size: 26px; font-weight: 700; margin-bottom: 20px;">Ready to Plot Your Course?</div>', unsafe_allow_html=True)
 
     with st.form("intake_form", clear_on_submit=True):
         name = st.text_input("Name", placeholder="Your Name")
@@ -217,7 +223,7 @@ if page == "Coaching":
             else:
                 st.warning("Please provide both your name and email address.")
 
-elif page == "Research & Resources":
+elif page == "Resources":
     st.markdown('<div class="main-title">Resource Library</div>', unsafe_allow_html=True)
     st.markdown('<div class="tagline">Science-backed navigation for the long haul.</div>', unsafe_allow_html=True)
     
@@ -256,16 +262,15 @@ elif page == "About & Accomplishments":
         st.link_button("View Full UltraSignup Profile", "https://ultrasignup.com/results_participant.aspx?fname=Jaclyn&lname=Noshay")
 
     with col_stats:
-        # Displaying DP and Rankings from UltraSignup
         st.markdown(f"""
             <div class="stat-card">
-                <div style="font-size:14px; color:gray;">UltraSignup Rank</div>
+                <div style="font-size:14px; color: var(--text-body); opacity: 0.8;">UltraSignup Rank</div>
                 <div class="stat-val">91.85%</div>
                 <div style="font-size:12px; margin-top:10px;">Consistently ranked in the top tier of female ultra-athletes.</div>
             </div>
             <br>
             <div class="stat-card">
-                <div style="font-size:14px; color:gray;">Overall Finish Rate</div>
+                <div style="font-size:14px; color: var(--text-body); opacity: 0.8;">Overall Finish Rate</div>
                 <div class="stat-val">100%</div>
                 <div style="font-size:12px; margin-top:10px;">Technical efficiency across 100M, 100K, and 50K distances.</div>
             </div>
@@ -282,7 +287,7 @@ elif page == "About & Accomplishments":
 
 # --- FOOTER ---
 st.markdown(f"""
-    <div style="text-align: center; border-top: 1px solid #d1d8d1; margin-top: 60px; padding: 30px; font-size: 13px; color: #2e4a3d; opacity: 0.8;">
+    <div style="text-align: center; border-top: 1px solid var(--border-color); margin-top: 60px; padding: 30px; font-size: 13px; color: var(--text-header); opacity: 0.8;">
         Noshay Navigations © 2026 &nbsp; | &nbsp; Portland, Oregon &nbsp; | &nbsp; Mapped for Adventure. Built for Life.
     </div>
 """, unsafe_allow_html=True)
