@@ -483,9 +483,6 @@ elif page == "My Story & Accomplishments":
         </div>
         """, unsafe_allow_html=True)
         
-        st.write("") # Spacer
-        st.link_button("View Full UltraSignup Profile", "https://ultrasignup.com/results_participant.aspx?fname=Jaclyn&lname=Noshay")
-
     with col_image:
         st.image("images/nobusiness.jpg", caption="No Business - First 100 mile race!", use_container_width=False)
         
@@ -501,6 +498,11 @@ elif page == "My Story & Accomplishments":
     
     # --- PERSONAL BESTS SECTION ---
     st.markdown("### 🏆 The Field Log")
+    
+    st.write("") # Spacer
+    st.link_button("View Full UltraSignup Profile", "https://ultrasignup.com/results_participant.aspx?fname=Jaclyn&lname=Noshay")
+    st.write("") # Spacer
+
     col_stats1, col_stats2 = st.columns(2)
     with col_stats1:
         st.markdown(f"""
