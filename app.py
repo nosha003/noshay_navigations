@@ -258,7 +258,7 @@ if page == "Coaching":
             <div class="price-card-container">
                 <div style="color: var(--accent-green); font-size: 36px; font-weight: 700;">$100 <span style="font-size:18px; font-weight:400; color: var(--text-body); opacity: 0.7;">/ month</span></div>
                 <div style="color: var(--text-body); font-size:14px; margin-top:8px;">Comprehensive Coaching for Every Distance</div>
-                <div style="color: var(--text-body); font-size:12px; margin-top:8px;">Financial capacity shouldn't be a barrier to quality coaching. I am open to sliding scale discussions based on your needs and the type of support we design together.</div>
+                <div style="color: var(--text-body); font-size:10px; margin-top:8px;">*Financial capacity shouldn't be a barrier to quality coaching. I am open to sliding scale discussions based on your needs and the type of support we design together.</div>
             </div>
         """, unsafe_allow_html=True)
 
