@@ -226,25 +226,55 @@ if page == "Coaching":
 
 elif page == "Resources":
     st.markdown('<div class="main-title">Resource Library</div>', unsafe_allow_html=True)
-    st.markdown('<div class="tagline">Science-backed navigation for the long haul.</div>', unsafe_allow_html=True)
+    st.markdown('<div class="tagline">Coordinates for the starting line and the long haul.</div>', unsafe_allow_html=True)
     
     st.divider()
 
-    col_a, col_b = st.columns(2)
-    with col_a:
-        st.markdown("### 🧪 Endurance Science")
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.markdown("### 🏃 Foundational Training")
+        st.write("Essential reading for building a resilient engine.")
         st.markdown("""
-        * **[Science of Ultra](https://www.scienceofultra.com/podcasts):** Master-level physiological breakdowns.
-        * **[ISSN Guidelines](https://jissn.biomedcentral.com/):** Evidence-based fueling protocols.
-        * **[The FASTER Study](https://www.metabolismjournal.com/article/S0026-0495(15)00334-0/fulltext):** Research on metabolic efficiency.
+        * **[80/20 Running Principles](https://www.8020endurance.com/):** The science of slowing down to get faster.
+        * **[TrainingPeaks Blog](https://www.trainingpeaks.com/blog/):** Gold-standard basics for aerobic base building.
+        * **[Couch to 5K (C25K)](https://www.c25k.com/):** The classic roadmap for the absolute beginner.
+        * **[Runners World Strength for Runners](https://www.runnersworld.com/strength-training/):** Foundational injury prevention.
+        * **[Strength for Trail Runners](https://www.irunfar.com/):** Pre-hab routines specifically for the eccentric loading of PNW downhills.
         """)
-    with col_b:
+        
+        st.markdown("### 🧪 Advanced Endurance Science")
+        st.write("Cutting-edge studies for the long-distance specialist.")
+        st.write("Recent research focusing on the 'Logistics of the Engine'.")
+        st.markdown("""
+        * **[The Fueling Window: Intra-workout timing](https://pubmed.ncbi.nlm.nih.gov/):** Recent studies on 'gut training' suggest consistent 60-90g/hr intake regardless of intensity to prevent late-race failure.
+        * **[Intensity vs. Distance (2023 Study)](https://www.frontiersin.org/journals/physiology):** New data on 'Critical Speed' in ultras—how training at higher intensities preserves muscle fiber recruitment during 100-mile efforts.
+        * **[Metabolic Efficiency & Fat Oxidation](https://www.metabolismjournal.com/):** Exploring the balance of fat-adaptation without sacrificing high-end glycolytic power.
+        * **[Science of Ultra: Fueling Logistics](https://www.scienceofultra.com/podcasts/131):** A deep dive into why your stomach shuts down and how to coordinate a rescue plan.
+        * **[GU Energy Lab - Ultra Research](https://guenergy.com/blogs/nutrition-lab):** Specifics on carbohydrate oxidation at hour 10+.
+        * **[Science of Ultra - GI Distress Study](https://www.scienceofultra.com/podcasts/131):** Navigating the most common reason for Ultra DNF.
+        * **[Journal of Sports Sciences - Pacing](https://www.tandfonline.com/journals/rjsp20):** Recent studies on cognitive fatigue in 100-mile events.
+        """)
+
+    with col2:
         st.markdown("### 🗺️ Trail & Navigation Tools")
+        st.write("The software you need to plot your course.")
         st.markdown("""
-        * **[CalTopo](https://caltopo.com/):** High-level topographic planning.
-        * **[FarOut Guides](https://faroutguides.com/):** Long-distance thru-run navigation.
-        * **[Forest Park Conservancy](https://forestparkconservancy.org/):** Local Portland trail maps and updates.
+        * **[Strava Global Heatmap](https://www.strava.com/heatmap):** Essential for finding 'hidden' trail connectors in the Gorge or Tillamook.
+        * **[AllTrails (Condition Reports)](https://www.alltrails.com/):** Use this specifically for recent 'Trip Reports' to check for snow levels or downed trees.
+        * **[Gaia GPS](https://www.gaiagps.com/):** My preferred tool for mapping technical PNW routes where cell service is non-existent.
+        * **[CalTopo](https://caltopo.com/):** Technical elevation profile planning for high-vert days.
         """)
+
+        st.markdown("### 🌲 PNW Trails & Communities")
+        st.write("Local knowledge for navigating the Portland dirt.")
+        st.markdown("""
+        * **[Wy'east Wolfpack](https://www.wyeastwolfpack.com/):** A staple community for local group runs and mountain training.
+        * **[Portland Trail Series](http://www.portlandtrailseries.com/):** The best way to get 'race-intensity' training on local Forest Park singletrack.
+        * **[Forest Park Conservancy](https://forestparkconservancy.org/):** Real-time updates on Wildwood Trail conditions and bridge closures.
+        * **[Territory Run Co.](https://territoryrun.co/):** A Portland-based community hub for trail culture and local meetups.
+        """)
+
 
 elif page == "About & Accomplishments":
     st.markdown('<div class="main-title">About Jaclyn Noshay</div>', unsafe_allow_html=True)
