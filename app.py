@@ -379,8 +379,13 @@ elif page == "Research & Resources":
 
     st.markdown('<div class="main-title">Resource Library</div>', unsafe_allow_html=True)
     st.markdown('<div class="tagline">Coordinates for the starting line and the long haul.</div>', unsafe_allow_html=True)
-    st.text('<div class="tagline">This is just a <b>small taste</b> of the many public resources available out there—from training tools to local groups—to help kick off your training from research to community</div>', unsafe_allow_html=True)
-    
+    st.markdown("""
+    <div style="font-size: 18px; color: var(--text-body); margin-bottom: 25px; line-height: 1.6;">
+        This is just a <b>small taste</b> of the many public resources available out there — from training tools to local 
+        groups — to help kick off your training from research to community
+    </div>
+    """, unsafe_allow_html=True)
+
     st.divider()
 
     st.markdown("### 🏃 Foundational Training")
