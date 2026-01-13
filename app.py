@@ -286,7 +286,7 @@ if page == "Coaching":
             msg = MIMEMultipart()
             msg['From'] = EMAIL
             msg['To'] = EMAIL
-            msg['Subject'] = f"New Lead: {name} - {goal}"
+            msg['Subject'] = f"Noshay Navigations Inquiry: {name}"
 
             # Email Body
             body = f"""
