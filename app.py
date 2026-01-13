@@ -488,39 +488,19 @@ elif page == "My Story & Accomplishments":
         st.link_button("View Full UltraSignup Profile", "https://ultrasignup.com/results_participant.aspx?fname=Jaclyn&lname=Noshay")
 
     with col_image:
-        # Vertical Stack of images to fill the height of the bio
         st.image("images/nobusiness.jpg", caption="No Business - First 100 mile race!", use_container_width=False)
         
-        # st.markdown("<div style='margin-bottom: 15px;'></div>", unsafe_allow_html=True) # Custom spacer
-        
-        # st.image("images/icecream.jpg", caption="Traveling the world one step and ice cream code at a time <3", use_container_width=True)
 
-        # st.markdown("<div style='margin-bottom: 15px;'></div>", unsafe_allow_html=True) # Custom spacer
-        
-        # st.image("images/snow.jpg", caption="All Terrain Adventures", use_container_width=True)
+    # st.divider()
+    
+    # --- COACHING EXPERIENCE ---
+    # st.markdown('### Coaching Experience')
+    # Emily, Lance, Steffi ...
+
 
     st.divider()
     
     # --- PERSONAL BESTS SECTION ---
-    st.markdown('### ⚡ Personal Bests')
-    pr_col1, pr_col2 = st.columns(2)
-    
-    with pr_col1:
-        st.markdown("**Road & Speed**")
-        st.markdown("""
-        * **5K:** 18:53 (2020)
-        * **Half Marathon:** 1:28:36 (Knoxville Half Marathon 2023)
-        * **Marathon:** 3:07:11 (Boston Marathon 2024)
-        """)
-
-    with pr_col2:
-        st.markdown("**Trail & Ultra**")
-        st.markdown("""
-        * **50K:** 4:20:34 (Chester Woods 2020)
-        * **100K:** 10:33:51 (Zion Ultras 2023)
-        * **100 Miler:** 17:51:03 (Oregon Cascades 2024)
-        """)
-
     st.markdown("### 🏆 The Field Log")
     col_stats1, col_stats2 = st.columns(2)
     with col_stats1:
@@ -552,6 +532,25 @@ elif page == "My Story & Accomplishments":
         {"Year": "2023", "Event": "Superior Fall Trail Race 100M", "Rank": "2nd Female, 8th Overall", "Category": "100 Miler"},
         {"Year": "2022", "Event": "No Business 100M", "Rank": "1st Female, 6th Overall", "Category": "100 Miler"}
     ])
+
+    st.markdown('### ⚡ Personal Bests')
+    pr_col1, pr_col2 = st.columns(2)
+    
+    with pr_col1:
+        st.markdown("**Road & Speed**")
+        st.markdown("""
+        * **5K:** 18:53 (2020)
+        * **Half Marathon:** 1:28:36 (Knoxville Half Marathon 2023)
+        * **Marathon:** 3:07:11 (Boston Marathon 2024)
+        """)
+
+    with pr_col2:
+        st.markdown("**Trail & Ultra**")
+        st.markdown("""
+        * **50K:** 4:20:34 (Chester Woods 2020)
+        * **100K:** 10:33:51 (Zion Ultras 2023)
+        * **100 Miler:** 17:51:03 (Oregon Cascades 2024)
+        """)
 
 # --- FOOTER ---
 st.markdown(f"""
