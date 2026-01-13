@@ -144,7 +144,7 @@ if page == "Coaching":
 
     with col_text:
         st.markdown('<div class="main-title">Noshay Navigations</div>', unsafe_allow_html=True)
-        st.markdown('<div class="tagline">Mapped for Adventure. <br>Built for Life.</div>', unsafe_allow_html=True)
+        st.markdown('<div class="tagline">Mapped for Adventure. Built for Life.</div>', unsafe_allow_html=True)
         st.markdown('<div class="sub-labels">🏁 Portland-Based Trail & Ultra Specialist | Performance Logistics</div>', unsafe_allow_html=True)
 
     with col_img:
