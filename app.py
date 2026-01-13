@@ -243,13 +243,13 @@ if page == "Coaching":
     pkg_col1, pkg_col2 = st.columns([1, 1.2])
 
     with pkg_col1:
-        st.markdown("### What's Included:")
+        st.markdown("#### What's Included:")
         st.write("✅ **Personalized Look-Ahead:** A long-term vision of your season goals.")
         st.write("✅ **Week-to-Week Planning:** Dynamic schedules that adapt to your real life.")
         st.write("✅ **COROS Training Hub:** Full utilization of technical metrics.")
 
     with pkg_col2:
-        st.markdown("### Communication:")
+        st.markdown("#### Communication:")
         st.write("📞 **Monthly Phone Call:** Deep dive into strategy and progress.")
         st.write("💬 **Ad Hoc Text Support:** Quick questions? On-the-fly adjustments? I'm a text away.")
         st.write("🏃 **Expert Guidance:** Specialized trail, ultra, and exploration advice.")
