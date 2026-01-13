@@ -113,6 +113,25 @@ st.markdown("""
         border-radius: 6px !important;
     }
 
+    .pillar-card {
+        background-color: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 30px 20px;
+        height: 100%;
+        transition: transform 0.2s ease, border-color 0.2s ease;
+        text-align: center;
+    }
+    .pillar-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-green);
+    }
+    .pillar-icon {
+        font-size: 40px;
+        margin-bottom: 15px;
+        display: block;
+    }
+
     hr { border-top: 1px solid var(--border-color); margin: 30px 0; }
     </style>
     """, unsafe_allow_html=True)
@@ -152,16 +171,57 @@ if page == "Coaching":
 
     st.markdown("<hr>", unsafe_allow_html=True)
 
+    # p1, p2, p3 = st.columns(3)
+    # with p1:
+    #     st.markdown('<div class="pillar-title">🌱 Foundation</div>', unsafe_allow_html=True)
+    #     st.markdown('<div class="pillar-text">Navigating the transition from road to trail or building your first base. We map the terrain and the fun.</div>', unsafe_allow_html=True)
+    # with p2:
+    #     st.markdown('<div class="pillar-title">🏔️ Elevation</div>', unsafe_allow_html=True)
+    #     st.markdown('<div class="pillar-text">Targeting a PR or a new distance? Performance logistics tailored to level up relative to your individual goals.</div>', unsafe_allow_html=True)
+    # with p3:
+    #     st.markdown('<div class="pillar-title">🗺️ Exploration</div>', unsafe_allow_html=True)
+    #     st.markdown('<div class="pillar-text">Specialized for the adventures of life. We navigate the tactical shifts needed for long-term health and speed.</div>', unsafe_allow_html=True)
+
+    # --- COACHING PILLARS SECTION ---
+    st.markdown('<div style="color: var(--text-header); font-size: 26px; font-weight: 700; margin-top: 20px; margin-bottom: 25px;">Coaching Pillars</div>', unsafe_allow_html=True)
+    
     p1, p2, p3 = st.columns(3)
+    
     with p1:
-        st.markdown('<div class="pillar-title">🌱 Foundation</div>', unsafe_allow_html=True)
-        st.markdown('<div class="pillar-text">Navigating the transition from road to trail or building your first base. We map the terrain and the fun.</div>', unsafe_allow_html=True)
+        st.markdown(f"""
+            <div class="pillar-card">
+                <span class="pillar-icon">🌱</span>
+                <div class="pillar-title">Foundation</div>
+                <div class="pillar-text">
+                    Navigating the transition from road to trail or building your first base. 
+                    We map the terrain and the fun, ensuring a resilient engine for the long haul.
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
+
     with p2:
-        st.markdown('<div class="pillar-title">🏔️ Elevation</div>', unsafe_allow_html=True)
-        st.markdown('<div class="pillar-text">Targeting a PR or a new distance? Performance logistics tailored to level up relative to your individual goals.</div>', unsafe_allow_html=True)
+        st.markdown(f"""
+            <div class="pillar-card">
+                <span class="pillar-icon">🏔️</span>
+                <div class="pillar-title">Elevation</div>
+                <div class="pillar-text">
+                    Targeting a PR or a new distance? Performance logistics tailored to level up 
+                    your vertical game and technical efficiency on mountainous terrain.
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
+
     with p3:
-        st.markdown('<div class="pillar-title">🗺️ Exploration</div>', unsafe_allow_html=True)
-        st.markdown('<div class="pillar-text">Specialized for the adventures of life. We navigate the tactical shifts needed for long-term health and speed.</div>', unsafe_allow_html=True)
+        st.markdown(f"""
+            <div class="pillar-card">
+                <span class="pillar-icon">🗺️</span>
+                <div class="pillar-title">Exploration</div>
+                <div class="pillar-text">
+                    Specialized for high-mileage life. We navigate the tactical shifts needed 
+                    for 100-milers while maintaining long-term health and speed.
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
 
     st.markdown('<div style="color: var(--text-header); font-size: 26px; font-weight: 700; margin-top: 40px; margin-bottom: 15px;">The Strategy of the Stride</div>', unsafe_allow_html=True)
     # st.markdown('<div style="font-size: 15px; line-height: 1.7; color: var(--text-body);">Running doesn’t happen in a vacuum—it happens between meetings, family, and daily commitments. Whether training for your first 5k or a 100-miler, I provide the logistics of performance mapped to your real life. I provide the map so you can focus on the exploration.</div>', unsafe_allow_html=True)
