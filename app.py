@@ -498,10 +498,6 @@ elif page == "My Story & Accomplishments":
     
     # --- PERSONAL BESTS SECTION ---
     st.markdown("### 🏆 The Field Log")
-    
-    st.write("") # Spacer
-    st.link_button("View Full UltraSignup Profile", "https://ultrasignup.com/results_participant.aspx?fname=Jaclyn&lname=Noshay")
-    st.write("") # Spacer
 
     col_stats1, col_stats2 = st.columns(2)
     with col_stats1:
@@ -533,6 +529,10 @@ elif page == "My Story & Accomplishments":
         {"Year": "2023", "Event": "Superior Fall Trail Race 100M", "Rank": "2nd Female, 8th Overall", "Category": "100 Miler"},
         {"Year": "2022", "Event": "No Business 100M", "Rank": "1st Female, 6th Overall", "Category": "100 Miler"}
     ])
+
+    st.write("") # Spacer
+    st.link_button("View Full UltraSignup Profile", "https://ultrasignup.com/results_participant.aspx?fname=Jaclyn&lname=Noshay")
+    st.write("") # Spacer
 
     st.markdown('### ⚡ Personal Bests')
     pr_col1, pr_col2 = st.columns(2)
