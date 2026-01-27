@@ -312,7 +312,7 @@ if page == "Coaching":
         with col_email:
             email = st.text_input("Email", placeholder="Your Email Address")
         
-        goal = st.text_input("Training Goal / Target Race / Milestone", placeholder="e.g., Running Consistency or Oregon Cascades 100M or First 10K")
+        goal = st.text_input("Training Goal / Target Race / Milestone", placeholder="e.g., Running Consistency or Mountain Lakes 100M or First 10K")
         msg = st.text_area("Logistics & Schedule", placeholder="Tell me about your current weekly mileage and commitments...")
         
         submit_button = st.form_submit_button("Request Consultation")
