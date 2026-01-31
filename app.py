@@ -390,6 +390,15 @@ elif page == "Research & Resources":
     * **[Runners World Strength for Runners](https://www.runnersworld.com/strength-training/):** Foundational injury prevention.
     """)
 
+    st.markdown("### 🌲 PNW Trails & Communities")
+    st.write("Local knowledge for navigating the Portland dirt.")
+    st.markdown("""
+    * **[Wy'east Wolfpack](https://www.wyeastwolfpack.com/):** A staple community for local group runs and mountain training.
+    * **[Portland Trail Series](http://www.portlandtrailseries.com/):** The best way to get 'race-intensity' training on local Forest Park singletrack.
+    * **[Forest Park Conservancy](https://forestparkconservancy.org/):** Real-time updates on Wildwood Trail conditions and bridge closures.
+    * **[Territory Run Co.](https://territoryrun.co/):** A Portland-based community hub for trail culture and local meetups.
+    """)
+
     st.markdown("### 🗺️ Trail & Navigation Tools")
     st.write("The software you need to plot your course.")
     st.markdown("""
@@ -399,14 +408,7 @@ elif page == "Research & Resources":
     * **[Coros Training Hub](https://training.coros.com/)** – A powerful public platform for analyzing your workout data, tracking load, and managing your "infrastructure" over time.
     """)
 
-    st.markdown("### 🌲 PNW Trails & Communities")
-    st.write("Local knowledge for navigating the Portland dirt.")
-    st.markdown("""
-    * **[Wy'east Wolfpack](https://www.wyeastwolfpack.com/):** A staple community for local group runs and mountain training.
-    * **[Portland Trail Series](http://www.portlandtrailseries.com/):** The best way to get 'race-intensity' training on local Forest Park singletrack.
-    * **[Forest Park Conservancy](https://forestparkconservancy.org/):** Real-time updates on Wildwood Trail conditions and bridge closures.
-    * **[Territory Run Co.](https://territoryrun.co/):** A Portland-based community hub for trail culture and local meetups.
-    """)
+    st.divider()
 
     st.markdown("### 🧪 Advanced Endurance Science")
     st.write("Cutting-edge research for the long-distance specialist.")
@@ -417,27 +419,23 @@ elif page == "Research & Resources":
     * **[The Fueling Window: Intra-workout Timing](https://pubmed.ncbi.nlm.nih.gov/):** Research on gut training and consistent 60–90 g/hr intake to prevent late-race failure.
     * **[GU Energy Lab – Ultra Research](https://guenergy.com/blogs/nutrition-lab):** Carbohydrate oxidation and fueling efficiency at hour 10+.
     * **[Metabolic Efficiency & Fat Oxidation](https://www.metabolismjournal.com/):** Balancing fat adaptation without sacrificing high-end glycolytic power.
-    * **[Science of Ultra – Fueling Logistics](https://www.scienceofultra.com/podcasts/131):** Why stomach shutdown happens and how to plan a rescue strategy.
-    * **[Science of Ultra – GI Distress Study](https://www.scienceofultra.com/podcasts/131):** The most common cause of ultra DNFs and how to mitigate it.
     """)
 
     # -------------------------
     st.markdown("#### 🏃 Training Structure, Load & Adaptation")
     st.markdown("""
     * **[Training Load & Endurance Adaptation](https://pubmed.ncbi.nlm.nih.gov/40623829/):** How cumulative stress drives (or limits) performance.
-    * **[Muscular Endurance for Ultrarunners](https://trainright.com/muscular-endurance-ultrarunners-high-rep-strength-training/):** High-rep strength training and durability.
     * **[Elite Endurance Training Characteristics](https://www.trailrunnermag.com/training/trail-tips-training/the-science-behind-how-elite-runners-train/):** What elite runners actually do, not just what theory suggests.
-    * **[Endurance Training Intensity Distribution](https://link.springer.com/article/10.1186/s40798-022-00438-7):** Polarized vs threshold-heavy approaches.
     * **[Monitoring Training Load & Fatigue](https://onlinelibrary.wiley.com/doi/full/10.1111/sms.70208):** Practical frameworks for managing long-term consistency.
+    * **[Muscular Endurance for Ultrarunners](https://trainright.com/muscular-endurance-ultrarunners-high-rep-strength-training/):** High-rep strength training and durability.
     """)
 
     # -------------------------
     st.markdown("#### 🧠 Physiology, Fatigue & Performance Limits")
     st.markdown("""
+    * **[Physiological Stress After Ultramarathons](https://www.mdpi.com/2075-1729/13/10/1946):** What actually happens to the body post-race.
     * **[Critical Speed & Ultra Performance](https://www.frontiersin.org/journals/physiology):** How intensity work preserves muscle fiber recruitment deep into long races.
     * **[Physiological, Perceptual & Performance Limits](https://journals.lww.com/acsm-msse/fulltext/2022/05000/physiological,_perceptual,_and_performance.16.aspx):** Central vs peripheral fatigue in endurance events.
-    * **[Cognitive Fatigue & Pacing](https://www.tandfonline.com/journals/rjsp20):** Decision-making and mental load during 100-mile races.
-    * **[Physiological Stress After Ultramarathons](https://www.mdpi.com/2075-1729/13/10/1946):** What actually happens to the body post-race.
     """)
 
     # -------------------------
@@ -446,17 +444,21 @@ elif page == "Research & Resources":
     * **[Female Physiology in Endurance Running](https://www.irunfar.com/women-rule-female-physiology-in-endurance-running):** Key considerations often overlooked in training design.
     * **[Sex Differences in Endurance Performance](https://www.mdpi.com/2411-5142/10/4/482):** Physiological distinctions with real-world implications.
     * **[Age & Endurance Performance Trends](https://pmc.ncbi.nlm.nih.gov/articles/PMC5992463/):** Longevity, peak performance, and aging in endurance sport.
-    * **[Psychological Predictors of Ultra Success](https://www.amhsr.org/articles/the-psychological-indicators-of-success-in-ultrarunninga-review-of-the-current-psychological-predictors-in-ultrarunning-12405.html):** Mental traits correlated with ultrarunning performance.
     """)
 
     # -------------------------
     st.markdown("#### ⏱️ Tapering, Peaking & Recovery")
     st.markdown("""
     * **[Evidence-Based Tapering Models](https://pmc.ncbi.nlm.nih.gov/articles/PMC10171681/):** Systematic review of taper strategies.
-    * **[Stronger by Science – Tapering](https://www.strongerbyscience.com/tapering/):** Clear explanations of what actually works.
     * **[How to Taper for Long Races](https://www.trailrunnermag.com/training/trail-tips-training/how-to-taper-for-long-races/):** Practical application for trail and ultra athletes.
     * **[Preventing the Taper Tantrum](https://trainright.com/tapering-ultrarunning-prevent-taper-tantrum/):** Managing fitness, fatigue, and athlete psychology.
     """)
+
+# * **[Endurance Training Intensity Distribution](https://link.springer.com/article/10.1186/s40798-022-00438-7):** Polarized vs threshold-heavy approaches.
+# * **[Science of Ultra – Fueling Logistics](https://www.scienceofultra.com/podcasts/131):** Why stomach shutdown happens and how to plan a rescue strategy.
+# * **[Science of Ultra – GI Distress Study](https://www.scienceofultra.com/podcasts/131):** The most common cause of ultra DNFs and how to mitigate it.
+# * **[Cognitive Fatigue & Pacing](https://www.tandfonline.com/journals/rjsp20):** Decision-making and mental load during 100-mile races.
+# * **[Psychological Predictors of Ultra Success](https://www.amhsr.org/articles/the-psychological-indicators-of-success-in-ultrarunninga-review-of-the-current-psychological-predictors-in-ultrarunning-12405.html):** Mental traits correlated with ultrarunning performance.
 
 # st.markdown("""
 # * **[The Fueling Window: Intra-workout timing](https://pubmed.ncbi.nlm.nih.gov/):** Recent studies on 'gut training' suggest consistent 60-90g/hr intake regardless of intensity to prevent late-race failure.
