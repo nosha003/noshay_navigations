@@ -68,7 +68,7 @@ st.markdown("""
 
     .tagline {
         color: var(--accent-green);
-        font-size: 28px;
+        font-size: 30px;
         font-weight: 500;
         margin-top: -5px;
         margin-bottom: 15px;
@@ -76,7 +76,7 @@ st.markdown("""
 
     .sub-labels {
         color: var(--text-header);
-        font-size: 15px;
+        font-size: 20px;
         background: rgba(137, 163, 145, 0.2);
         padding: 5px 12px;
         border-radius: 5px;
@@ -85,12 +85,12 @@ st.markdown("""
 
     .pillar-title {
         color: var(--text-header);
-        font-size: 20px;
+        font-size: 24px;
         font-weight: 700;
         margin-bottom: 10px;
     }
     .pillar-text {
-        font-size: 14px;
+        font-size: 18px;
         color: var(--text-body);
         line-height: 1.6;
     }
@@ -107,7 +107,7 @@ st.markdown("""
 
     .stat-val {
         color: var(--accent-green);
-        font-size: 28px;
+        font-size: 30px;
         font-weight: 700;
         margin-bottom: 5px;
     }
@@ -147,8 +147,8 @@ header_col1, header_col2 = st.columns([3, 1])
 with header_col1:
     st.markdown("""
         <div style="display:flex; align-items:center; gap:12px; padding-top:8px;">
-            <span style="font-size:24px;">🧭</span>
-            <span style="font-weight:700; font-size:22px; color:var(--text-header);">Noshay Navigations</span>
+            <span style="font-size:28px;">🧭</span>
+            <span style="font-weight:700; font-size:24px; color:var(--text-header);">Noshay Navigations</span>
         </div>
     """, unsafe_allow_html=True)
 
@@ -189,7 +189,7 @@ if page == "Coaching":
     #     st.markdown('<div class="pillar-text">Specialized for the adventures of life. We navigate the tactical shifts needed for long-term health and speed.</div>', unsafe_allow_html=True)
 
     # --- COACHING PILLARS SECTION ---
-    st.markdown('<div style="color: var(--text-header); font-size: 26px; font-weight: 700; margin-top: 20px; margin-bottom: 25px;">Coaching Pillars</div>', unsafe_allow_html=True)
+    st.markdown('<div style="color: var(--text-header); font-size: 28px; font-weight: 700; margin-top: 20px; margin-bottom: 25px;">Coaching Pillars</div>', unsafe_allow_html=True)
     
     p1, p2, p3 = st.columns(3)
     
@@ -233,12 +233,12 @@ if page == "Coaching":
             </div>
         """, unsafe_allow_html=True)
 
-    st.markdown('<div style="color: var(--text-header); font-size: 26px; font-weight: 700; margin-top: 40px; margin-bottom: 15px;">The Strategy of the Stride</div>', unsafe_allow_html=True)
+    st.markdown('<div style="color: var(--text-header); font-size: 28px; font-weight: 700; margin-top: 40px; margin-bottom: 15px;">The Strategy of the Stride</div>', unsafe_allow_html=True)
     # st.markdown('<div style="font-size: 15px; line-height: 1.7; color: var(--text-body);">Running doesn’t happen in a vacuum—it happens between meetings, family, and daily commitments. Whether training for your first 5k or a 100-miler, I provide the logistics of performance mapped to your real life. I provide the map so you can focus on the exploration.</div>', unsafe_allow_html=True)
-    st.markdown('<div style="font-size: 15px; line-height: 1.7; color: var(--text-body);">Performance is a logistical puzzle. Running doesn’t exist in a vacuum; it happens between meetings, family, and daily commitments. Whether training for your first 5k or a 100-miler, I bridge the gap between your ambitious goals and your day to day life. Using science-backed methodology, I coordinate the performance logistics of your training to align with your reality, so you can focus entirely on the exploration.</div>', unsafe_allow_html=True)
+    st.markdown('<div style="font-size: 18px; line-height: 1.7; color: var(--text-body);">Performance is a logistical puzzle. Running doesn’t exist in a vacuum; it happens between meetings, family, and daily commitments. Whether training for your first 5k or a 100-miler, I bridge the gap between your ambitious goals and your day to day life. Using science-backed methodology, I coordinate the performance logistics of your training to align with your reality, so you can focus entirely on the exploration.</div>', unsafe_allow_html=True)
     st.markdown("<hr>", unsafe_allow_html=True)
 
-    st.markdown('<div style="color: var(--text-header); font-size: 26px; font-weight: 700; margin-bottom: 25px;">Coaching Navigation Package</div>', unsafe_allow_html=True)
+    st.markdown('<div style="color: var(--text-header); font-size: 28px; font-weight: 700; margin-bottom: 25px;">Coaching Navigation Package</div>', unsafe_allow_html=True)
 
     pkg_col1, pkg_col2 = st.columns([1, 1.2])
 
@@ -257,15 +257,15 @@ if page == "Coaching":
     st.markdown(f"""
             <div class="price-card-container">
                 <div style="color: var(--accent-green); font-size: 36px; font-weight: 700;">$100 <span style="font-size:18px; font-weight:400; color: var(--text-body); opacity: 0.7;">/ month</span></div>
-                <div style="color: var(--text-body); font-size:14px; margin-top:8px;">Comprehensive Coaching for Every Distance</div>
-                <div style="color: var(--text-body); font-size:10px; margin-top:8px;">*Financial capacity shouldn't be a barrier to quality coaching. I am open to sliding scale discussions based on your needs and the type of support we design together.</div>
+                <div style="color: var(--text-body); font-size:18px; margin-top:8px;">Comprehensive Coaching for Every Distance</div>
+                <div style="color: var(--text-body); font-size:14px; margin-top:8px;">*Financial capacity shouldn't be a barrier to quality coaching. I am open to sliding scale discussions based on your needs and the type of support we design together.</div>
             </div>
         """, unsafe_allow_html=True)
 
     st.markdown("<hr>", unsafe_allow_html=True)
 
     # --- INTAKE FORM SECTION ---
-    st.markdown('<div style="color: var(--text-header); font-size: 26px; font-weight: 700; margin-bottom: 20px;">Ready to Plot Your Course?</div>', unsafe_allow_html=True)
+    st.markdown('<div style="color: var(--text-header); font-size: 28px; font-weight: 700; margin-bottom: 20px;">Ready to Plot Your Course?</div>', unsafe_allow_html=True)
     st.write("Ready to Plot Your Course? Submit the intake form below. Once received, I will reach out to schedule a 30-minute connection to review your logistics and verify the fit before we begin mapping your training.", unsafe_allow_html=True)
 
     # --- CONFIGURATION ---
@@ -373,7 +373,7 @@ elif page == "Research & Resources":
     st.markdown('<div class="main-title">Resource Library</div>', unsafe_allow_html=True)
     st.markdown('<div class="tagline">Coordinates for the starting line and the long haul.</div>', unsafe_allow_html=True)
     st.markdown("""
-    <div style="font-size: 18px; color: var(--text-body); margin-bottom: 25px; line-height: 1.6;">
+    <div style="font-size: 20px; color: var(--text-body); margin-bottom: 25px; line-height: 1.6;">
         This is just a <b>small taste</b> of the many public resources available out there — from training tools to local 
         groups — to help kick off your training from research to community
     </div>
@@ -592,17 +592,17 @@ elif page == "My Story & Accomplishments":
     with col_stats1:
         st.markdown(f"""
             <div class="stat-card">
-                <div style="font-size:14px; color: var(--text-body); opacity: 0.8;">UltraSignup Rank</div>
+                <div style="font-size:18px; color: var(--text-body); opacity: 0.8;">UltraSignup Rank</div>
                 <div class="stat-val">91.85%</div>
-                <div style="font-size:12px; margin-top:10px;">Consistently ranked in the top tier of female ultra-athletes.</div>
+                <div style="font-size:14px; margin-top:10px;">Consistently ranked in the top tier of female ultra-athletes.</div>
             </div>
         """, unsafe_allow_html=True)
     with col_stats2:
         st.markdown(f"""
             <div class="stat-card">
-                <div style="font-size:14px; color: var(--text-body); opacity: 0.8;">Overall Finish Rate</div>
+                <div style="font-size:18px; color: var(--text-body); opacity: 0.8;">Overall Finish Rate</div>
                 <div class="stat-val">100%</div>
-                <div style="font-size:12px; margin-top:10px;">Technical efficiency across 100M, 100K, and 50K distances.</div>
+                <div style="font-size:14px; margin-top:10px;">Technical efficiency across 100M, 100K, and 50K distances.</div>
             </div>
         """, unsafe_allow_html=True)
 
@@ -644,7 +644,7 @@ elif page == "My Story & Accomplishments":
 
 # --- FOOTER ---
 st.markdown(f"""
-    <div style="text-align: center; border-top: 1px solid var(--border-color); margin-top: 60px; padding: 30px; font-size: 13px; color: var(--text-header); opacity: 0.8;">
+    <div style="text-align: center; border-top: 1px solid var(--border-color); margin-top: 60px; padding: 30px; font-size: 15px; color: var(--text-header); opacity: 0.8;">
         Noshay Navigations © 2026 &nbsp; | &nbsp; Portland, Oregon &nbsp; | &nbsp; Mapped for Adventure. Built for Life.
     </div>
 """, unsafe_allow_html=True)
