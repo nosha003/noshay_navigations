@@ -508,58 +508,69 @@ elif page == "My Story & Accomplishments":
     with col_bio:
         st.markdown(f"""
         <div style="font-size: 16px; line-height: 1.7; color: var(--text-body); text-align: justify;">
-            <p>
-                My name is <b>Jaclyn Noshay</b>. I am a Portland-based ultra-endurance athlete and a 
-                <b>Genetics PhD</b> working in Agricultural R&D. My professional life is spent solving 
-                age-old biological puzzles—using data and strategy to rethink how we grow and sustain life. 
-                I am fascinated by novel approaches to complex systems, whether that’s inside a DNA 
-                sequence or out on a single-track trail.
-            </p>
-            <p>
-                My own athletic coordinates have shifted over a decade of experience—evolving from 
-                a youth soccer player and collegiate triathlete into the novice track and road 
-                circuits before finding my home in the ultra-trail community. This journey taught 
-                me that while every athlete's path is distinct, the objective is always the same: 
-                finding the specific strategy that turns a daunting distance into an achievable reality.
-            </p>
-            <p>
-                Two years ago, my husband and I moved to Portland to shorten the gap between our 
-                front door and the mountains. We wanted to stop "fitting in" the outdoors and start 
-                integrating it. But even with the trails closer, the juggle didn't get easier—it 
-                just got more intentional.
-            </p>
-            <p>
-                <b>The real talk is this:</b> I am not a professional athlete, and if you’re reading this, 
-                you likely aren't either. I don’t have a six-hour recovery window or a support crew 
-                tracking my every move. I am the scientist, usually behind a computer managing 
-                the logistics of R&D while navigating the same crowded 24-hour clock that you are. 
-                I have a career to maintain, a family to be present for, and a calendar that doesn't 
-                care about my mileage goals.
-            </p>
-            <p>
-                In the ultra-running world, the "grind" is often glorified at the expense of everything 
-                else. But I’ve learned that a training plan is destined to fail if it requires you to blow 
-                up your professional integrity or ignore the people you love. A plan that doesn’t 
-                account for the Tuesday where you’re mentally drained from a data-heavy day, a friend’s 
-                wedding weekend, or a Saturday spent on the sidelines of soccer games is <b>unsustainable</b>.
-            </p>
-            <p>
-                I am obsessed with the piece of the sport we don't talk about enough: 
-                <b>The Bio-Logistics of the Whole Person.</b> Performance isn't just about what 
-                your legs can do; it’s about how your training interacts with your stress levels, 
-                your sleep, and your "capacity battery."
-            </p>
-            <p>
-                Using the same analytical rigor I apply to genetics, I help athletes map their 
-                training to the actual terrain of their lives. We don't just look at heart rate zones; 
-                we look at your calendar. We don't just count miles; we count the cost of the juggle.
-            </p>
-            <p style="font-size: 18px; color: var(--text-header); font-weight: 700; margin-top: 25px;">
-                Your Life is the Terrain. We Map the Training.
-            </p>
+        <p>
+            My name is <b>Jaclyn Noshay</b>. I’m a Portland-based ultra-endurance athlete and a 
+            <b>Genetics PhD</b> working in Agricultural R&D. My professional life is spent solving 
+            complex biological puzzles—using data and strategy to rethink how we grow and sustain life. 
+            I’m drawn to novel approaches to complex systems, whether that’s inside a DNA sequence or 
+            out on a single-track trail.
+        </p>
+        <p>
+            My athletic path has evolved over more than a decade—moving from youth soccer and collegiate 
+            triathlon, through track and road running, before finding my home in the ultra-trail community. 
+            That evolution taught me an essential truth: while every athlete’s journey looks different, 
+            success almost always comes down to finding the strategy that makes a daunting goal feel 
+            realistic, sustainable, and personal.
+        </p>
+        <p>
+            Two years ago, my husband and I moved to Portland to shorten the distance between our front door 
+            and the mountains. We wanted to stop “fitting in” the outdoors and start integrating it into our lives. 
+            Even with trails closer, the juggle didn’t disappear—it simply became more intentional. We now spend 
+            most weekends exploring the forests and mountains in and around Portland, and that sense of adventure, 
+            curiosity, and connection to nature is central to the joy I find in running.
+        </p>
+        <p>
+            <b>The real talk is this:</b> I’m not a professional athlete, and if you’re reading this, you likely 
+            aren’t either. I live a full life—balancing a demanding career, family, and the same competing priorities 
+            most runners face—and I coach from that reality. Training has to fit into real life, not the other way around. 
+            In the ultra-running world, the “grind” is often glorified, but a plan that requires you to compromise your 
+            integrity or neglect the people you care about is destined to fail. Sustainable training accounts for real 
+            life: the mentally draining Tuesday, the wedding weekend, or the Saturday spent on the sidelines of soccer games.
+        </p>
+        <p>
+            I’m especially interested in the part of the sport we don’t talk about enough: 
+            <b>the bio-logistics of the whole person.</b> Performance isn’t just about what your legs can do—it’s about 
+            how training interacts with stress, sleep, recovery, and overall capacity. Science provides powerful 
+            frameworks, but it can’t capture the full complexity of a human life.
+        </p>
+        <p>
+            At the core of my coaching philosophy is the belief that training is never one-size-fits-all. I use science 
+            as a baseline, not a blueprint. The best training plan emerges through collaboration—by understanding an 
+            athlete’s goals, schedule, stress load, recovery capacity, and motivation. Coaching, to me, is a partnership 
+            rooted in curiosity, communication, and trust, where we experiment thoughtfully and adapt as life evolves.
+        </p>
+        <p>
+            Using the same analytical rigor I apply to genetics, I help athletes map training to the actual terrain of 
+            their lives. We don’t just look at heart rate zones—we look at your calendar. We don’t just count miles—we 
+            consider the cost of the juggle. The goal isn’t to force your life to conform to a plan, but to design a plan 
+            that works <em>because</em> it fits your life.
+        </p>
+        <p style="font-size: 18px; color: var(--text-header); font-weight: 700; margin-top: 25px;">
+            Your Life is the Terrain. We Map the Training.
+        </p>
         </div>
         """, unsafe_allow_html=True)
         
+# Original text:
+# My name is Jaclyn Noshay. I am a Portland-based ultra-endurance athlete and a Genetics PhD working in Agricultural R&D. My professional life is spent solving age-old biological puzzles—using data and strategy to rethink how we grow and sustain life. I am fascinated by novel approaches to complex systems, whether that’s inside a DNA sequence or out on a single-track trail.
+# My own athletic coordinates have shifted over a decade of experience—evolving from a youth soccer player and collegiate triathlete into the novice track and road circuits before finding my home in the ultra-trail community. This journey taught me that while every athlete's path is distinct, the objective is always the same: finding the specific strategy that turns a daunting distance into an achievable reality.
+# Two years ago, my husband and I moved to Portland to shorten the gap between our front door and the mountains. We wanted to stop "fitting in" the outdoors and start integrating it. But even with the trails closer, the juggle didn't get easier—it just got more intentional.
+# The real talk is this: I am not a professional athlete, and if you’re reading this, you likely aren't either. I don’t have a six-hour recovery window or a support crew tracking my every move. I am the scientist, usually behind a computer managing the logistics of R&D while navigating the same crowded 24-hour clock that you are. I have a career to maintain, a family to be present for, and a calendar that doesn't care about my mileage goals.
+# In the ultra-running world, the "grind" is often glorified at the expense of everything else. But I’ve learned that a training plan is destined to fail if it requires you to blow up your professional integrity or ignore the people you love. A plan that doesn’t account for the Tuesday where you’re mentally drained from a data-heavy day, a friend’s wedding weekend, or a Saturday spent on the sidelines of soccer games is unsustainable.
+# I am obsessed with the piece of the sport we don't talk about enough: The Bio-Logistics of the Whole Person. Performance isn't just about what your legs can do; it’s about how your training interacts with your stress levels, your sleep, and your "capacity battery."
+# Using the same analytical rigor I apply to genetics, I help athletes map their training to the actual terrain of their lives. We don't just look at heart rate zones; we look at your calendar. We don't just count miles; we count the cost of the juggle.
+# Your Life is the Terrain. We Map the Training.
+
     with col_image:
         st.image("images/nobusiness.jpg", caption="No Business - First 100 mile race!", use_container_width=False)
         
