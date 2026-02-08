@@ -516,7 +516,7 @@ elif page == "My Story & Accomplishments":
             out on a single-track trail.
         </p>
         <p>
-            My athletic path has evolved over the course of my life—mbeginning in youth soccer, transitioning 
+            My athletic path has evolved over the course of my life—beginning in youth soccer, transitioning 
             to collegiate triathlon, and then moving into road running as I deepened my endurance base and 
             understanding of training, before ultimately finding my home in the trail and ultra-running community.
             That evolution taught me an essential truth: while every athlete’s journey looks different, 
