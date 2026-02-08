@@ -507,7 +507,7 @@ elif page == "My Story & Accomplishments":
     
     with col_bio:
         st.markdown(f"""
-        <div style="font-size: 16px; line-height: 1.7; color: var(--text-body); text-align: justify;">
+        <div style="font-size: 18px; line-height: 1.7; color: var(--text-body); text-align: justify;">
         <p>
             My name is <b>Jaclyn Noshay</b>. I’m a Portland-based ultra-endurance athlete and a 
             <b>Genetics PhD</b> working in Agricultural R&D. My professional life is spent solving 
@@ -555,7 +555,7 @@ elif page == "My Story & Accomplishments":
             consider the cost of the juggle. The goal isn’t to force your life to conform to a plan, but to design a plan 
             that works <em>because</em> it fits your life.
         </p>
-        <p style="font-size: 18px; color: var(--text-header); font-weight: 700; margin-top: 25px;">
+        <p style="font-size: 20px; color: var(--text-header); font-weight: 700; margin-top: 25px;">
             Your Life is the Terrain. We Map the Training.
         </p>
         </div>
