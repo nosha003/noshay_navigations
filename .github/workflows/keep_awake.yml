@@ -12,5 +12,5 @@ jobs:
     steps:
       - name: Send ping request to Streamlit
         run: |
-          curl -s https://streamlit.app > /dev/null
+          curl -s https://noshaynavigations.streamlit.app > /dev/null
           echo "Ping sent successfully!"
